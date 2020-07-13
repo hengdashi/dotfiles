@@ -1,0 +1,3 @@
+[submodule "themes/iterm"]
+	path = themes/iterm
+	url = https://github.com/dracula/iterm.git
