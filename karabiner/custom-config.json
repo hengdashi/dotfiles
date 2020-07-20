@@ -1,0 +1,88 @@
+{
+  "title": "custom config",
+  "rules": [
+    {
+      "description": "Post esc if control is tapped, control if held.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from":
+          {
+            "key_code": "left_control",
+            "modifiers":
+            {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "Post parentheses if shift is tapped, shift if held.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from":
+          {
+            "key_code": "left_shift",
+            "modifiers":
+            {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "9",
+              "modifiers": ["shift"]
+
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from":
+          {
+            "key_code": "right_shift",
+            "modifiers":
+            {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "0",
+              "modifiers": ["shift"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
