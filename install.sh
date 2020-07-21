@@ -2,7 +2,7 @@
 
 # os initialization script (macos->Darwin, linux->Linux)
 UNAME=$(uname)
-DOTPATH=$(dirname $(realpath "$0"))
+DOTPATH="$(cd "$(dirname "$0")" && pwd -P)"
 
 if [[ ! -d ~/.zprezto/ ]]; then
     # switch to zsh & prezto
@@ -22,14 +22,13 @@ git config --global user.name "Hengda Shi"
 git config --global user.email "hengda.shi@engineering.ucla.edu"
 git config --global core.editor "vim"
 
-if [[ -d ~/.config/nvim ]]; then
-    ln -fs ${DOTPATH}/vim/init.vim ~/.config/nvim/init.vim
-    rm -r ~/.config/nvim/config
-    mkdir ~/.config/nvim/config
-    for vimrc in ${DOTPATH}/vim/config/*; do
-        ln -fs ${vimrc} ~/.config/nvim/config/$(basename ${vimrc})
-    done
-fi
+# configure nvim
+rm -r ~/.config/nvim
+mkdir -p ~/.config/nvim/config
+ln -fs ${DOTPATH}/vim/init.vim ~/.config/nvim/init.vim
+for vimrc in ${DOTPATH}/vim/config/*; do
+ln -fs ${vimrc} ~/.config/nvim/config/$(basename ${vimrc})
+done
 
 if [[ ! -e ~/.tmux.conf ]]; then
     ln -fs ${DOTPATH}/tmux/.tmux.conf ~/.tmux.conf
