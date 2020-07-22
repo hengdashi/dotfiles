@@ -165,8 +165,12 @@ function! CocCurrentFunction()
   return get(b:, 'coc_current_function', '')
 endfunction
 
+" even though lightline has no dracula theme documented (darcula is NOT
+" dracula!)
+" it comes with the dracula theme option
+" https://github.com/itchyny/lightline.vim/issues/299
 let g:lightline = {
-    \ 'colorscheme': 'darcula',
+    \ 'colorscheme': 'dracula',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]

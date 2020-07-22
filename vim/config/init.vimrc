@@ -11,9 +11,11 @@ endif
 call plug#begin()
   " dracula theme
   Plug 'dracula/vim', { 'as': 'dracula' }
-  " autocomplete
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " statusline
   Plug 'itchyny/lightline.vim'
+  " fuzzy file finder
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  " autocomplete
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
