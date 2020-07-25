@@ -1,9 +1,22 @@
-""""""""""""""""""""""""""""""dracula settings""""""""""""""""""""""""""""""
+" =============================================================================
+" dracula
+" =============================================================================
+" Remove the non-transparent background
+let g:dracula_colorterm = 0
+
+augroup dracula_customization
+  au!
+  " autocmds...
+  autocmd ColorScheme dracula hi clear CursorLine
+  autocmd ColorScheme dracula hi CursorLine cterm=underline term=underline
+augroup END
+
 colorscheme dracula
-""""""""""""""""""""""""""""""dracula settings""""""""""""""""""""""""""""""
+set termguicolors
 
-
-""""""""""""""""""""""""""""""coc.nvim settings""""""""""""""""""""""""""""""
+" =============================================================================
+" coc.nvim
+" =============================================================================
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -157,31 +170,178 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-""""""""""""""""""""""""""""""coc.nvim settings""""""""""""""""""""""""""""""
 
 
-""""""""""""""""""""""""""""""lightline.vim settings""""""""""""""""""""""""""""""
+" =============================================================================
+" lightline.vim
+" =============================================================================
 function! CocCurrentFunction()
   return get(b:, 'coc_current_function', '')
 endfunction
 
-" even though lightline has no dracula theme documented (darcula is NOT
-" dracula!)
-" it comes with the dracula theme option
-" https://github.com/itchyny/lightline.vim/issues/299
+autocmd VimEnter * call SetupLightlineColors()
+function SetupLightlineColors() abort
+  " transparent background in statusbar
+  let l:palette = lightline#palette()
+
+  let l:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+  let l:palette.inactive.middle = l:palette.normal.middle
+  let l:palette.tabline.middle = l:palette.normal.middle
+
+  call lightline#colorscheme()
+endfunction
+
 let g:lightline = {
     \ 'colorscheme': 'dracula',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+    \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ],
+    \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \ },
+    \ 'tabline': {
+    \   'left': [ ['tabs'] ],
+    \   'right': []
+    \ },
+    \ 'tab': {
+    \   'active': [ 'tabnum', 'readonly', 'filename', 'modified' ],
+    \   'inactive': [ 'tabnum', 'readonly', 'filename', 'modified' ]
+    \ },
+    \ 'component': {
+    \   'lineinfo': ' %3l:%-2v',
     \ },
     \ 'component_function': {
     \   'cocstatus': 'coc#status',
-    \   'currentfunction': 'CocCurrentFunction'
-    \ },
+    \   'currentfunction': 'CocCurrentFunction',
+    \   'readonly': 'LightlineReadonly',
+    \   'fugitive': 'LightlineFugitive',
+    \   'filetype': 'DeviconsFiletype',
+    \   'fileformat': 'DeviconsFileformat'
     \ }
-""""""""""""""""""""""""""""""lightline.vim settings""""""""""""""""""""""""""""""
+\ }
+
+function! DeviconsFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! DeviconsFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+function! LightlineReadonly()
+  return &readonly ? '' : ''
+endfunction
+function! LightlineFugitive()
+  if exists('*FugitiveHead')
+    let branch = FugitiveHead()
+    return branch !=# '' ? ''.branch : ''
+  endif
+  return ''
+endfunction
 
 
-"""""""""""""""""""""""""""""ale settings"""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""ale settings"""""""""""""""""""""""""""
+" =============================================================================
+" airline
+" =============================================================================
+
+" let g:airline#extensions#tabline#enabled = 1
+
+
+" =============================================================================
+" fzf
+" =============================================================================
+" An action can be a reference to a function that processes selected lines
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+" actions
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'enter': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+
+" make fzf find dot files as well
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+
+let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
+
+" Move to right panel
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = float2nr(10)
+  let width = float2nr(80)
+  let horizontal = float2nr((&columns - width) / 2)
+  let vertical = 1
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': vertical,
+        \ 'col': horizontal,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
+
+" Customize fzf colors to match your color scheme
+" - fzf#wrap translates this to a set of `--color` options
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history
+" - History files will be stored in the specified directory
+" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
+"   'previous-history' instead of 'down' and 'up'.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+
+" =============================================================================
+" startify
+" =============================================================================
+" reorder list
+let g:startify_lists = [
+    \ { 'type': 'sessions',  'header': ['   Sessions']       },
+    \ { 'type': 'files',     'header': ['   MRU']            },
+    \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+    \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+    \ { 'type': 'commands',  'header': ['   Commands']       },
+    \ ]
+" update session automatically as you exit vim
+let g:startify_session_presistence = 1
+" make startify use unicode
+let g:startify_fortune_use_unicode = 1
+" sort sessions by modification time
+let g:startify_session_sort = 1
+" autoload session when in a directory that has session
+let g:startify_session_autoload = 1
+
+
+" =============================================================================
+" ale
+" =============================================================================
+
+

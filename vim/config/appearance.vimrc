@@ -2,7 +2,7 @@
 
 " no longer needed as vim-plug will auto invoke them
 " filetype plugin indent on          " Load plugins according to detected filetype.
-" syntax on                          " Enable syntax highlighting.
+syntax enable                      " Enable syntax highlighting.
 
 set autoindent                     " Indent according to previous line.
 set expandtab                      " Use spaces instead of tabs.
@@ -13,7 +13,7 @@ set shiftround                     " >> indents to next multiple of 'shiftwidth'
 set wrap                           " Wrap line
 set linebreak                      " Enable linebreak
 set showbreak   =↪                 " Show linebreak symbol
-set colorcolumn =80                " Set color on column at 80
+"set colorcolumn =80                " Set color on column at 80
 
 set backspace   =indent,eol,start  " Make backspace work as you would expect.
 set hidden                         " Switch between buffers without having to save first.
@@ -42,7 +42,7 @@ set cursorline                     " Find the current line quickly.
 set wrapscan                       " Searches wrap around end-of-file.
 set report      =0                 " Always report changed lines.
 set synmaxcol   =200               " Only highlight the first 200 columns.
-set cc          =80                " Set an 80 column border for good coding style
+"set cc          =80                " Set an 80 column border for good coding style
 
 set list!                          " Show non-printable characters.
 if has('multi_byte') && &encoding ==# 'utf-8'
