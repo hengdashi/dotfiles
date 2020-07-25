@@ -21,7 +21,7 @@ set laststatus  =2                 " Always show statusline.
 set display     =lastline          " Show as much as possible of the last line.
 set number                         " Add line numbers
 set relativenumber                 " Show relative line number
-set mouse=a                        " Use mouse to scroll
+set mouse+=a                       " Use mouse to scroll
 
 set showmatch                      " Show matching brackets.
 set noshowmode                     " Not show current mode in command-line (show by lightline).
@@ -31,6 +31,7 @@ set noerrorbells visualbell t_vb=  " Disable bell
 set incsearch                      " Highlight while searching with / or ?.
 set hlsearch                       " Keep matches highlighted.
 set ignorecase                     " Case insensitive matching
+set smartcase                      " Smart case matching
 
 set ttyfast                        " Faster redrawing.
 set lazyredraw                     " Only redraw when necessary.
