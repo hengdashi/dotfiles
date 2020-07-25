@@ -8,8 +8,11 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
       \| endif
 endif
 
+" change leader keys
 let g:mapleader="\<Space>"
 let g:maplocalleader=","
+" set color to be 256 
+set t_Co=256
 
 call plug#begin('~/.local/share/nvim/plugged')
   " ===========================================================================
