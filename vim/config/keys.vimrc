@@ -35,17 +35,20 @@ au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
 au FileType fzf tunmap <buffer> <Esc>
 
 " remap fzf commands
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>F :Files ~<CR>
+if !empty(glob("~/.local/share/nvim/plugged/fzf.vim"))
+  nnoremap <leader>f :Files<CR>
+  nnoremap <leader>F :Files ~<CR>
+endif
 
 " remap startify session saving and loading
-" save current session
-nnoremap <leader>ls :SSave<CR>
-" close current session
-nnoremap <leader>lc :SClose<CR>
-" load a session
-nnoremap <leader>ll :SLoad<CR>
-" delete a session
-nnoremap <leader>ld :SDelete<CR>
-
+if !empty(glob("~/.local/share/nvim/plugged/vim-startify"))
+  "" save current session
+  nnoremap <leader>ls :SSave<CR>
+  " close current session
+  nnoremap <leader>lc :SClose<CR>
+  " load a session
+  nnoremap <leader>ll :SLoad<CR>
+  " delete a session
+  nnoremap <leader>ld :SDelete<CR>
+endif
 

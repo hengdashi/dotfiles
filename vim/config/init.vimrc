@@ -37,9 +37,11 @@ call plug#begin('~/.local/share/nvim/plugged')
   " fuzzy file finder
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } | Plug 'junegunn/fzf.vim'
   " move on speed
-  Plug 'easymotion/vim-easymotion'
+  "Plug 'easymotion/vim-easymotion'
   " delimiter
-  Plug 'jiangmiao/auto-pairs'
+  "Plug 'jiangmiao/auto-pairs'
+  " rainbow parentheses
+  Plug 'luochen1990/rainbow'
   " commenting
   Plug 'preservim/nerdcommenter'
   " multicursor
