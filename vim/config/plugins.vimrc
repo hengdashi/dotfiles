@@ -2,7 +2,7 @@
 " dracula
 " =============================================================================
 
-if !empty(glob("~/.local/share/nvim/plugged/dracula"))
+if has_key(plugs, 'dracula')
   " Remove the non-transparent background
   let g:dracula_colorterm = 0
 
@@ -26,7 +26,7 @@ endif
 " coc.nvim
 " =============================================================================
 
-if !empty(glob("~/.local/share/nvim/plugged/coc.nvim"))
+if has_key(plugs, 'coc.nvim')
   " TextEdit might fail if hidden is not set.
   set hidden
 
@@ -187,22 +187,22 @@ endif
 " lightline.vim
 " =============================================================================
 
-if !empty(glob("~/.local/share/nvim/plugged/lightline.vim"))
+if has_key(plugs, 'lightline.vim')
   function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
   endfunction
 
-  autocmd VimEnter * call SetupLightlineColors()
-  function SetupLightlineColors() abort
-    " transparent background in statusbar
-    let l:palette = lightline#palette()
-
-    let l:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-    let l:palette.inactive.middle = l:palette.normal.middle
-    let l:palette.tabline.middle = l:palette.normal.middle
-
-    call lightline#colorscheme()
-  endfunction
+"   autocmd VimEnter * call SetupLightlineColors()
+"   function SetupLightlineColors() abort
+"     " transparent background in statusbar
+"     let l:palette = lightline#palette()
+" 
+"     let l:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+"     let l:palette.inactive.middle = l:palette.normal.middle
+"     let l:palette.tabline.middle = l:palette.normal.middle
+" 
+"     call lightline#colorscheme()
+"   endfunction
 
   let g:lightline = {
       \ 'colorscheme': 'dracula',
@@ -270,7 +270,7 @@ endif
 " fzf
 " =============================================================================
 
-if !empty(glob("~/.local/share/nvim/plugged/fzf"))
+if has_key(plugs, 'fzf')
   " An action can be a reference to a function that processes selected lines
   function! s:build_quickfix_list(lines)
     call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
@@ -288,11 +288,6 @@ if !empty(glob("~/.local/share/nvim/plugged/fzf"))
   set wildmode=list:longest,list:full
   set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 
-  " make fzf find dot files as well
-  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
-
-  let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
-
   " Move to right panel
   let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
@@ -300,7 +295,7 @@ if !empty(glob("~/.local/share/nvim/plugged/fzf"))
     let buf = nvim_create_buf(v:false, v:true)
     call setbufvar(buf, '&signcolumn', 'no')
 
-    let height = float2nr(10)
+    let height = float2nr(20)
     let width = float2nr(80)
     let horizontal = float2nr((&columns - width) / 2)
     let vertical = 1
@@ -316,6 +311,47 @@ if !empty(glob("~/.local/share/nvim/plugged/fzf"))
 
     call nvim_open_win(buf, v:true, opts)
   endfunction
+
+  " ripgrep
+  if executable('rg')
+    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+    set grepprg=rg\ --vimgrep
+    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+  endif
+
+  " Files + devicons
+  function! Fzf_dev()
+    let l:fzf_files_options = '--preview "bat --theme="Dracula" --style=numbers,changes --color always {2..-1} | head -'.&lines.'"'
+
+    function! s:files()
+      let l:files = split(system($FZF_DEFAULT_COMMAND), '\n')
+      return s:prepend_icon(l:files)
+    endfunction
+
+    function! s:prepend_icon(candidates)
+      let l:result = []
+      for l:candidate in a:candidates
+        let l:filename = fnamemodify(l:candidate, ':p:t')
+        let l:icon = WebDevIconsGetFileTypeSymbol(l:filename, isdirectory(l:filename))
+        call add(l:result, printf('%s %s', l:icon, l:candidate))
+      endfor
+      return l:result
+    endfunction
+
+    function! s:edit_file(item)
+      let l:pos = stridx(a:item, ' ')
+      let l:file_path = a:item[pos+1:-1]
+      execute 'silent e' l:file_path
+    endfunction
+
+    call fzf#run({
+          \ 'source': <sid>files(),
+          \ 'sink':   function('s:edit_file'),
+          \ 'options': '-m ' . l:fzf_files_options,
+          \ 'down':    '40%' })
+  endfunction
+
+  let $FZF_DEFAULT_OPTS='--preview-window "right:60%" --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse --margin=1,4 --preview "bat --theme="Dracula" --style=numbers,changes --color always {2..-1} | head -'.&lines.'"'
 
   " Customize fzf colors to match your color scheme
   " - fzf#wrap translates this to a set of `--color` options
@@ -346,7 +382,7 @@ endif
 " startify
 " =============================================================================
 
-if !empty(glob("~/.local/share/nvim/plugged/vim-startify"))
+if has_key(plugs, 'vim-startify')
   " reorder list
   let g:startify_lists = [
       \ { 'type': 'sessions',  'header': ['   Sessions']       },
@@ -370,7 +406,7 @@ endif
 " indentLine
 " =============================================================================
 
-if !empty(glob("~/.local/share/nvim/plugged/indentLine"))
+if has_key(plugs, 'indentLine')
   let g:indentLine_char_list = ['¦', '┊']
 endif
 
@@ -379,9 +415,28 @@ endif
 " rainbow
 " =============================================================================
 
-if !empty(glob("~/.local/share/nvim/plugged/rainbow"))
+if has_key(plugs, 'rainbow')
   let g:rainbow_active = 1
+  let g:rainbow_conf = {
+  \ 'guifgs': ['yellow', 'cyan', 'orange', 'pink', 'red', 'purple']
+  \}
 endif
+
+
+" =============================================================================
+" nerdCommenter
+" =============================================================================
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left
+let g:NERDDefaultAlign = 'left'
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
 
 
 " =============================================================================

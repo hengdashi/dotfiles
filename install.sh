@@ -22,7 +22,20 @@ git config --global user.name "Hengda Shi"
 git config --global user.email "hengda.shi@engineering.ucla.edu"
 git config --global core.editor "vim"
 
+
 # configure nvim
+# install external plugins for vim
+if [[ $(UNAME) == "Darwin" ]]; then
+  if ! command -v brew &> /dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  fi
+  brew install zsh git ripgrep bat yarn
+elif [[ $(UNAME) == "Linux" ]]; then
+  sudo apt install -o Dpkg::Options::="--force-overwrite" ripgrep bat yarn
+fi
+pip install neovim
+yarn global add neovim 
+
 rm -r ~/.config/nvim
 mkdir -p ~/.config/nvim/config
 mkdir -p ~/.local/share/nvim/plugged

@@ -27,19 +27,24 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'ryanoasis/vim-devicons'
   " indent
   Plug 'Yggdroot/indentLine'
-  " git integration
-  "Plug 'tpope/vim-fugitive'
   " dracula theme
   Plug 'dracula/vim', { 'as': 'dracula' }
   " ===========================================================================
   " code intelligence and linting
   " ===========================================================================
+  " linting
+  "Plug 'dense-analysis/ale'
+  " autocomplete
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " fuzzy file finder
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } | Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    " git integration
+    Plug 'tpope/vim-fugitive'
+    " fzf preview
+    Plug 'junegunn/fzf.vim'
+
   " move on speed
-  "Plug 'easymotion/vim-easymotion'
-  " delimiter
-  "Plug 'jiangmiao/auto-pairs'
+  Plug 'easymotion/vim-easymotion'
   " rainbow parentheses
   Plug 'luochen1990/rainbow'
   " commenting
@@ -48,9 +53,5 @@ call plug#begin('~/.local/share/nvim/plugged')
   "Plug 'terryma/vim-multiple-cursors'
   " snippets
   "Plug 'SirVer/ultisnips'
-  " linting
-  "Plug 'dense-analysis/ale'
-  " autocomplete
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 

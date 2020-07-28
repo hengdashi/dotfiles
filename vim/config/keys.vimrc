@@ -35,14 +35,15 @@ au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
 au FileType fzf tunmap <buffer> <Esc>
 
 " remap fzf commands
-if !empty(glob("~/.local/share/nvim/plugged/fzf.vim"))
+if has_key(plugs, 'fzf.vim')
   nnoremap <leader>f :Files<CR>
   nnoremap <leader>F :Files ~<CR>
 endif
 
+
 " remap startify session saving and loading
-if !empty(glob("~/.local/share/nvim/plugged/vim-startify"))
-  "" save current session
+if has_key(plugs, 'vim-startify')
+  " save current session
   nnoremap <leader>ls :SSave<CR>
   " close current session
   nnoremap <leader>lc :SClose<CR>
@@ -50,5 +51,24 @@ if !empty(glob("~/.local/share/nvim/plugged/vim-startify"))
   nnoremap <leader>ll :SLoad<CR>
   " delete a session
   nnoremap <leader>ld :SDelete<CR>
+endif
+
+" remap git commands
+if has_key(plugs, 'vim-fugitive')
+  nnoremap <space>ga :Git add %:p<CR><CR>
+  nnoremap <space>gs :Gstatus<CR>
+  nnoremap <space>gc :Gcommit -v -q<CR>
+  nnoremap <space>gt :Gcommit -v -q %:p<CR>
+  nnoremap <space>gd :Gdiff<CR>
+  nnoremap <space>ge :Gedit<CR>
+  nnoremap <space>gr :Gread<CR>
+  nnoremap <space>gw :Gwrite<CR><CR>
+  nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+  nnoremap <space>gp :Ggrep<Space>
+  nnoremap <space>gm :Gmove<Space>
+  nnoremap <space>gb :Git branch<Space>
+  nnoremap <space>go :Git checkout<Space>
+  nnoremap <space>gps :Dispatch! git push<CR>
+  nnoremap <space>gpl :Dispatch! git pull<CR>
 endif
 
