@@ -40,6 +40,7 @@ rm -r ~/.config/nvim
 mkdir -p ~/.config/nvim/config
 mkdir -p ~/.local/share/nvim/plugged
 ln -fs ${DOTPATH}/vim/init.vim ~/.config/nvim/init.vim
+ln -fs ${DOTPATH}/vim/coc-settings.json ~/.config/nvim/coc-settings.json
 for vimrc in ${DOTPATH}/vim/config/*; do
   ln -fs ${vimrc} ~/.config/nvim/config/$(basename ${vimrc})
 done
