@@ -1,6 +1,7 @@
 -- local wm = require('window_management')
 
 hs.window.animationDuration = 0
+hs.window.setFrameCorrectness = true
 
 hs.hotkey.bind({"alt", "ctrl"}, "D", function()
     local win = hs.window.focusedWindow()
@@ -13,7 +14,7 @@ hs.hotkey.bind({"alt", "ctrl"}, "D", function()
     f.w = max.w / 3
     f.h = max.h
 
-    win:setFrame(f)
+    win:setFrameInScreenBounds(f)
 end)
 
 hs.hotkey.bind({"alt", "ctrl"}, "F", function()
@@ -27,7 +28,7 @@ hs.hotkey.bind({"alt", "ctrl"}, "F", function()
     f.w = max.w / 3
     f.h = max.h
 
-    win:setFrame(f)
+    win:setFrameInScreenBounds(f)
 end)
 
 hs.hotkey.bind({"alt", "ctrl"}, "G", function()
@@ -36,12 +37,12 @@ hs.hotkey.bind({"alt", "ctrl"}, "G", function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + (max.w / 3) * 2
+    f.x = max.x + (max.w / 3 * 2)
     f.y = max.y
     f.w = max.w / 3
     f.h = max.h
 
-    win:setFrame(f)
+    win:setFrameInScreenBounds(f)
 end)
 
 hs.hotkey.bind({"alt", "ctrl"}, "E", function()
@@ -55,7 +56,7 @@ hs.hotkey.bind({"alt", "ctrl"}, "E", function()
     f.w = max.w / 3 * 2
     f.h = max.h
 
-    win:setFrame(f)
+    win:setFrameInScreenBounds(f)
 end)
 
 hs.hotkey.bind({"alt", "ctrl"}, "T", function()
@@ -69,7 +70,7 @@ hs.hotkey.bind({"alt", "ctrl"}, "T", function()
     f.w = max.w / 3 * 2
     f.h = max.h
 
-    win:setFrame(f)
+    win:setFrameInScreenBounds(f)
 end)
 
 function reloadConfig(files)

@@ -13,6 +13,7 @@ let g:mapleader="\<Space>"
 let g:maplocalleader=","
 " set color to be 256 
 set t_Co=256
+let g:python3_host_prog='/usr/local/Caskroom/miniconda/base/bin/python3'
 
 call plug#begin('~/.local/share/nvim/plugged')
   " ===========================================================================
@@ -22,9 +23,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mhinz/vim-startify'
   " statusline
   Plug 'itchyny/lightline.vim'
-  "Plug 'vim-airline/vim-airline'
   " icon
   Plug 'ryanoasis/vim-devicons'
+  " smooth scroll
+  Plug 'psliwka/vim-smoothie'
   " indent
   Plug 'Yggdroot/indentLine'
   " dracula theme
@@ -43,6 +45,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     " fzf preview
     Plug 'junegunn/fzf.vim'
 
+  " file explorer
   " move on speed
   Plug 'easymotion/vim-easymotion'
   " rainbow parentheses

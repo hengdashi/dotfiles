@@ -30,6 +30,9 @@ nnoremap <leader>3 3gt
 nnoremap <leader>4 4gt
 nnoremap <leader>5 5gt
 
+" clear highlight
+nnoremap <esc> :noh<CR>
+
 " terminal model remap
 au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
 au FileType fzf tunmap <buffer> <Esc>

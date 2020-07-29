@@ -188,10 +188,6 @@ endif
 " =============================================================================
 
 if has_key(plugs, 'lightline.vim')
-  function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
-  endfunction
-
 "   autocmd VimEnter * call SetupLightlineColors()
 "   function SetupLightlineColors() abort
 "     " transparent background in statusbar
@@ -206,9 +202,22 @@ if has_key(plugs, 'lightline.vim')
 
   let g:lightline = {
       \ 'colorscheme': 'dracula',
+      \ 'mode_map': {
+      \   'n' : 'N',
+      \   'i' : 'I',
+      \   'R' : 'R',
+      \   'v' : 'V',
+      \   'V' : 'VL',
+      \   "\<C-v>": 'VB',
+      \   'c' : 'C',
+      \   's' : 'S',
+      \   'S' : 'SL',
+      \   "\<C-s>": 'SB',
+      \   't': 'T',
+      \ },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ],
+      \             [ 'fugitive', 'cocstatus', 'currentfunction' ] ],
       \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'tabline': {
@@ -223,14 +232,18 @@ if has_key(plugs, 'lightline.vim')
       \   'lineinfo': ' %3l:%-2v',
       \ },
       \ 'component_function': {
-      \   'cocstatus': 'coc#status',
+      \   'cocstatus':       'coc#status',
       \   'currentfunction': 'CocCurrentFunction',
-      \   'readonly': 'LightlineReadonly',
-      \   'fugitive': 'LightlineFugitive',
-      \   'filetype': 'DeviconsFiletype',
-      \   'fileformat': 'DeviconsFileformat'
+      \   'readonly':        'LightlineReadonly',
+      \   'fugitive':        'LightlineFugitive',
+      \   'filetype':        'DeviconsFiletype',
+      \   'fileformat':      'DeviconsFileformat'
       \ }
   \ }
+
+  function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+  endfunction
 
   function! DeviconsFiletype()
     if exists('*WebDevIconsGetFileTypeSymbol')
@@ -241,7 +254,7 @@ if has_key(plugs, 'lightline.vim')
 
   function! DeviconsFileformat()
     if exists('*WebDevIconsGetFileFormatSymbol')
-        return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+        return winwidth(0) > 70 ? WebDevIconsGetFileFormatSymbol() : ''
     endif
     return ''
   endfunction
@@ -257,13 +270,6 @@ if has_key(plugs, 'lightline.vim')
     return ''
   endfunction
 endif
-
-
-" =============================================================================
-" airline
-" =============================================================================
-
-" let g:airline#extensions#tabline#enabled = 1
 
 
 " =============================================================================
@@ -418,7 +424,7 @@ endif
 if has_key(plugs, 'rainbow')
   let g:rainbow_active = 1
   let g:rainbow_conf = {
-  \ 'guifgs': ['yellow', 'cyan', 'orange', 'pink', 'red', 'purple']
+  \ 'guifgs': ['yellow', 'cyan', 'orange', 'pink']
   \}
 endif
 
