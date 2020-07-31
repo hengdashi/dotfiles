@@ -54,3 +54,20 @@ else
   let &listchars = 'eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:-,space:.'
 endif
 
+let g:terminal_color_0  = '#21222C'
+let g:terminal_color_1  = '#FF5555'
+let g:terminal_color_2  = '#50FA7B'
+let g:terminal_color_3  = '#F1FA8C'
+let g:terminal_color_4  = '#BD93F9'
+let g:terminal_color_5  = '#FF79C6'
+let g:terminal_color_6  = '#8BE9FD'
+let g:terminal_color_7  = '#F8F8F2'
+let g:terminal_color_8  = '#6272A4'
+let g:terminal_color_9  = '#FF6E6E'
+let g:terminal_color_10 = '#69FF94'
+let g:terminal_color_11 = '#FFFFA5'
+let g:terminal_color_12 = '#D6ACFF'
+let g:terminal_color_13 = '#FF92DF'
+let g:terminal_color_14 = '#A4FFFF'
+let g:terminal_color_15 = '#FFFFFF'
+

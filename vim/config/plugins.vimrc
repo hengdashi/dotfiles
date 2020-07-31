@@ -325,7 +325,7 @@ if has_key(plugs, 'fzf')
     command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
   endif
 
-  let $FZF_DEFAULT_OPTS = '--color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse --margin=1,4 --preview "bat --theme="Dracula" --style=numbers,changes --color always {}"'
+  let $FZF_DEFAULT_OPTS = "--color=dark --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7 --layout=reverse --margin=1,4 --preview-window 'right:60%' --preview 'bat --theme='Dracula' --style=numbers,changes --color always {}'"
 
   " Customize fzf colors to match your color scheme
   " - fzf#wrap translates this to a set of `--color` options
@@ -417,5 +417,21 @@ let g:NERDToggleCheckAllLines = 1
 " =============================================================================
 " ale
 " =============================================================================
+let g:ale_fix_on_save = 1
 
+
+
+" =============================================================================
+" languages
+" =============================================================================
+  " latex config
+  let g:vimtex_view_method = 'zathura'
+  let g:vimtex_compiler_method = 'latexmk'
+  let g:vimtex_compiler_progname = 'nvr'
+  let g:vimtex_quickfix_autoclose_after_keystrokes = 1
+  let g:vimtex_quickfix_open_on_warning = 0
+
+  " markdown config
+  let g:vim_markdown_conceal = 0
+  let g:vim_markdown_conceal_code_blocks = 0
 

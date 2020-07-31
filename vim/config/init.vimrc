@@ -35,7 +35,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " code intelligence and linting
   " ===========================================================================
   " linting
-  "Plug 'dense-analysis/ale'
+  Plug 'dense-analysis/ale'
   " autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " fuzzy file finder
@@ -56,5 +56,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   "Plug 'terryma/vim-multiple-cursors'
   " snippets
   "Plug 'SirVer/ultisnips'
+  " ===========================================================================
+  " languages
+  " ===========================================================================
+  Plug 'lervag/vimtex'
 call plug#end()
 

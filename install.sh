@@ -45,6 +45,13 @@ for vimrc in ${DOTPATH}/vim/config/*; do
   ln -fs ${vimrc} ~/.config/nvim/config/$(basename ${vimrc})
 done
 
+# configure latexmk
+if [[ ! -d ~/.config/latexmk ]]; then
+  mkdir ~/.config/latexmk
+fi
+ln -fs ${DOTPATH}/latexmk/latexmkrc ~/.config/latexmk/latexmkrc
+
+# configure tmux
 if [[ ! -e ~/.tmux.conf ]]; then
   ln -fs ${DOTPATH}/tmux/.tmux.conf ~/.tmux.conf
 fi
