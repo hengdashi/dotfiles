@@ -34,11 +34,11 @@ nnoremap <leader>5 5gt
 nnoremap <esc> :noh<CR>
 
 " quit and save shortcut
-nnoremap <leader>q :q<CR>
+nnoremap <leader>q :q!<CR>
 
 " terminal mode remap
 nnoremap <leader>t :sp<Bar>resize 15<Bar>term<CR>
-au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+au TermOpen * tnoremap <buffer> <Esc> <C-\><C-n>
 au FileType fzf tunmap <buffer> <Esc>
 
 " remap fzf commands
