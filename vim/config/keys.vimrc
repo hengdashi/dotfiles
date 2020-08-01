@@ -33,7 +33,11 @@ nnoremap <leader>5 5gt
 " clear highlight
 nnoremap <esc> :noh<CR>
 
-" terminal model remap
+" quit and save shortcut
+nnoremap <leader>q :q<CR>
+
+" terminal mode remap
+nnoremap <leader>t :sp<Bar>resize 15<Bar>term<CR>
 au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
 au FileType fzf tunmap <buffer> <Esc>
 
@@ -47,7 +51,7 @@ endif
 " remap startify session saving and loading
 if has_key(plugs, 'vim-startify')
   " save current session
-  nnoremap <leader>ss :SSave<CR>
+  nnoremap <leader>ss :SSave!<CR>
   " close current session
   nnoremap <leader>sc :SClose<CR>
   " load a session
