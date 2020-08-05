@@ -430,6 +430,7 @@ let g:ale_fix_on_save = 1
   let g:vimtex_compiler_progname = 'nvr'
   let g:vimtex_quickfix_autoclose_after_keystrokes = 1
   let g:vimtex_quickfix_open_on_warning = 0
+  let g:tex_flavor = 'latex'
 
   " markdown config
   let g:vim_markdown_conceal = 0

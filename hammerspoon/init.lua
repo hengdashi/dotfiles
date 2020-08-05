@@ -3,6 +3,34 @@
 hs.window.animationDuration = 0
 hs.window.setFrameCorrectness = true
 
+hs.hotkey.bind({"alt", "ctrl"}, "A", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+
+    f.x = max.x
+    f.y = max.y
+    f.w = max.w / 2
+    f.h = max.h
+
+    win:setFrameInScreenBounds(f)
+end)
+
+hs.hotkey.bind({"alt", "ctrl"}, "S", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+
+    f.x = max.x + (max.w / 2)
+    f.y = max.y
+    f.w = max.w / 2
+    f.h = max.h
+
+    win:setFrameInScreenBounds(f)
+end)
+
 hs.hotkey.bind({"alt", "ctrl"}, "D", function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
