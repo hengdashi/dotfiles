@@ -56,6 +56,10 @@ if [[ ! -d ~/.config/zathura ]]; then
 fi
 ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
 
+if [[ -d ~/.hammerspoon ]]; then
+  ln -fs ${DOTPATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
+fi
+
 # configure tmux
 if [[ ! -e ~/.tmux.conf ]]; then
   ln -fs ${DOTPATH}/tmux/.tmux.conf ~/.tmux.conf
