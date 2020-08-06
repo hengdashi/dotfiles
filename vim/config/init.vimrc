@@ -30,7 +30,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " indent
   Plug 'Yggdroot/indentLine'
   " auto-resize
-  Plug 'camspiers/animate.vim'
+  "Plug 'camspiers/animate.vim'
   Plug 'camspiers/lens.vim'
   " dracula theme
   Plug 'dracula/vim', { 'as': 'dracula' }
