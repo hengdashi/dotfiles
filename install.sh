@@ -51,6 +51,11 @@ if [[ ! -d ~/.config/latexmk ]]; then
 fi
 ln -fs ${DOTPATH}/latexmk/latexmkrc ~/.config/latexmk/latexmkrc
 
+if [[ ! -d ~/.config/zathura ]]; then
+  mkdir ~/.config/zathura
+fi
+ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
+
 # configure tmux
 if [[ ! -e ~/.tmux.conf ]]; then
   ln -fs ${DOTPATH}/tmux/.tmux.conf ~/.tmux.conf
