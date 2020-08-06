@@ -13,7 +13,7 @@ let g:mapleader="\<Space>"
 let g:maplocalleader=","
 " set color to be 256 
 set t_Co=256
-let g:python3_host_prog='/usr/local/Caskroom/miniconda/base/bin/python3'
+let g:python3_host_prog='/opt/miniconda3/bin/python'
 
 call plug#begin('~/.local/share/nvim/plugged')
   " ===========================================================================
@@ -29,6 +29,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'psliwka/vim-smoothie'
   " indent
   Plug 'Yggdroot/indentLine'
+  " auto-resize
+  Plug 'camspiers/animate.vim'
+  Plug 'camspiers/lens.vim'
   " dracula theme
   Plug 'dracula/vim', { 'as': 'dracula' }
   " ===========================================================================
@@ -46,6 +49,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'junegunn/fzf.vim'
 
   " file explorer
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   " move on speed
   Plug 'easymotion/vim-easymotion'
   " rainbow parentheses
