@@ -11,7 +11,6 @@ set pages-per-row 1
 
 #stop at page boundries
 set scroll-page-aware           "true"
-set smooth-scroll               "true"
 set scroll-full-overlap         0.01
 
 set render-loading              "false"
@@ -25,7 +24,7 @@ set zoom-min                    10
 set guioptions                  ""
 
 # dracula
-set rcolor-reverse-video        "true"
+set recolor-reverse-video       "true"
 set recolor-keephue             "true"
 
 

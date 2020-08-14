@@ -38,7 +38,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " code intelligence and linting
   " ===========================================================================
   " linting
-  Plug 'dense-analysis/ale'
+  "Plug 'dense-analysis/ale'
   " autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " fuzzy file finder

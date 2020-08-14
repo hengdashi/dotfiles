@@ -1,5 +1,6 @@
 {
   "python.setInterpreter": "/opt/miniconda3/bin/python",
-  "diagnostic.displayByAle": true
+  "diagnostic.displayByAle": false,
+  "diagnostic.checkCurrentLine": true
 }
 
