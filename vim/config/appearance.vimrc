@@ -44,7 +44,7 @@ set splitright                     " Open new windows right of the current windo
 set cursorline                     " Find the current line quickly.
 set wrapscan                       " Searches wrap around end-of-file.
 set report      =0                 " Always report changed lines.
-set timeoutlen  =300               " shorten timeout len
+set timeoutlen  =500               " shorten timeout len
 set synmaxcol   =500               " Only highlight the first 500 columns.
 "set cc          =80                " Set an 80 column border for good coding style
 
