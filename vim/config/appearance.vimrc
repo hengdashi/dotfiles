@@ -9,6 +9,7 @@ set expandtab                      " Use spaces instead of tabs.
 set softtabstop =2                 " Tab key indents by 2 spaces.
 set shiftwidth  =2                 " >> indents by 2 spaces.
 set shiftround                     " >> indents to next multiple of 'shiftwidth'.
+autocmd FileType python setlocal shiftwidth=2 softtabstop=2 expandtab
 
 set wrap                           " Wrap line
 set linebreak                      " Enable linebreak

@@ -452,8 +452,19 @@ if has_key(plugs, 'vimtex')
 endif
 
 " markdown config
-if has_key(plugs, 'vim-markdown')
+if has_key(plugs, 'vim-polyglot')
   let g:vim_markdown_conceal = 0
   let g:vim_markdown_conceal_code_blocks = 0
+endif
+
+" json config
+if has_key(plugs, 'vim-polyglot')
+  let g:vim_json_syntax_conceal = 0
+endif
+
+" templates config
+if has_key(plugs, 'vim-template')
+  let g:username = 'hshi-esv'
+  let g:email    = 'hshi@etsy.com'
 endif
 

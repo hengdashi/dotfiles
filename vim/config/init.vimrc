@@ -13,7 +13,7 @@ let g:mapleader="\<Space>"
 let g:maplocalleader=","
 " set color to be 256 
 set t_Co=256
-let g:python3_host_prog='/usr/local/Caskroom/miniconda/base/bin/python'
+let g:python3_host_prog='~/miniconda3/envs/esv/bin/python'
 let g:coc_global_extensions = ['coc-python', 'coc-texlab']
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -66,5 +66,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " ===========================================================================
   " latex
   Plug 'lervag/vimtex'
+  " lang pack (note that vimtex recently got removed from polyglot
+  Plug 'sheerun/vim-polyglot'
+  " templates
+  Plug 'aperezdc/vim-template'
 call plug#end()
 
