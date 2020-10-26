@@ -78,5 +78,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
   " templates
   Plug 'aperezdc/vim-template'
+  " csv
+  Plug 'mechatroner/rainbow_csv'
 call plug#end()
 

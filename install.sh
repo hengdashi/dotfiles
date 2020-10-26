@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 # os initialization script (macos->Darwin, linux->Linux)
 UNAME=$(uname)
-DOTPATH="$(cd "$(dirname "$0")" && pwd -P)"
+DOTPATH=$(cd $(dirname "$0") && pwd -P)
 
 if [[ ! -d ~/.zprezto/ ]]; then
   # switch to zsh & prezto
@@ -20,21 +20,22 @@ if [[ ! -d ~/.zprezto/ ]]; then
 fi
 
 
-# configure nvim
-# install external plugins for vim
+# install applications for macos
 if [[ ${UNAME} == "Darwin" ]]; then
 
   # install homebrew
   if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
+
   brew install zsh git ripgrep bat yarn
 
   # TODO: install other packages and casks
 
   # switch default shell to zsh
-  [ "zsh" != $(basename $(echo $SHELL)) ] && chsh -s /usr/local/bin/zsh
+  [ "/usr/local/bin/zsh" != $(echo $SHELL) ] && chsh -s /usr/local/bin/zsh
 
+# install applications for linux
 elif [[ ${UNAME} == "Linux" ]]; then
 
   # add newest yarn
@@ -46,7 +47,7 @@ elif [[ ${UNAME} == "Linux" ]]; then
   [ "zsh" != $(basename $(echo $SHELL)) ] && chsh -s /usr/bin/zsh
 
   # install miniconda
-  if [[ ! -d $HOME/miniconda ]]; then
+  if [[ ! -d ~/miniconda ]]; then
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
     bash ~/miniconda.sh -b -p $HOME/miniconda
     source ~/miniconda/bin/activate
@@ -78,6 +79,7 @@ if [[ ${UNAME} == "Darwin" ]]; then
 elif [[ ${UNAME} == "Linux" ]]; then
   ln -fs ${DOTPATH}/vim/coc_config/linux/coc-settings.json ~/.config/nvim/coc-settings.json
 fi
+
 for vimrc in ${DOTPATH}/vim/config/*; do
   ln -fs ${vimrc} ~/.config/nvim/config/$(basename ${vimrc})
 done
@@ -97,6 +99,11 @@ ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
 # configure hammerspoon
 if [[ ${UNAME} == "Darwin" ]] && [[ -d ~/.hammerspoon ]]; then
   ln -fs ${DOTPATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
+fi
+
+# configure karabiner
+if [[ ${UNAME} == "Darwin" ]] && [[ -d ~/.config/karabiner ]]; then
+  ln -fs ${DOTPATH}/karabiner/custom-config.json ~/.config/karabiner/assets/complex_modifications/custom-settings.json
 fi
 
 # configure tmux
