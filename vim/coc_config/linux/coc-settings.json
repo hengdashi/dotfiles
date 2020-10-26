@@ -1,0 +1,13 @@
+{
+  "python.pythonPath": "/usr/local/Caskroom/miniconda/base/bin/python",
+  "python.condaPath": "/usr/local/bin/conda",
+  "diagnostic.displayByAle": false,
+  "diagnostic.checkCurrentLine": true,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintArgs": ["--rcfile=/tmp/pylintrc"],
+  "python.formatting.provider": "yapf",
+  "python.jediEnabled": false,
+  "python.jediPath": "/usr/local/Caskroom/miniconda/base/lib/python3.8/site-packages"
+}
+
