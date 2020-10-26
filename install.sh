@@ -23,6 +23,7 @@ fi
 # configure nvim
 # install external plugins for vim
 if [[ ${UNAME} == "Darwin" ]]; then
+
   # install homebrew
   if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -32,8 +33,8 @@ if [[ ${UNAME} == "Darwin" ]]; then
   # switch default shell to zsh
   [ "zsh" != $(basename $(echo $SHELL)) ] && chsh -s /usr/local/bin/zsh
 
-
 elif [[ ${UNAME} == "Linux" ]]; then
+
   # add newest yarn
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -69,11 +70,15 @@ rm -r ~/.config/nvim
 mkdir -p ~/.config/nvim/config
 mkdir -p ~/.local/share/nvim/plugged
 ln -fs ${DOTPATH}/vim/init.vim ~/.config/nvim/init.vim
-ln -fs ${DOTPATH}/vim/coc-settings.json ~/.config/nvim/coc-settings.json
+
+if [[ ${UNAME} == "Darwin" ]]; then
+  ln -fs ${DOTPATH}/vim/coc_config/macos/coc-settings.json ~/.config/nvim/coc-settings.json
+elif [[ ${UNAME} == "Linux" ]]; then
+  ln -fs ${DOTPATH}/vim/coc_config/linux/coc-settings.json ~/.config/nvim/coc-settings.json
+fi
 for vimrc in ${DOTPATH}/vim/config/*; do
   ln -fs ${vimrc} ~/.config/nvim/config/$(basename ${vimrc})
 done
-
 
 # configure latexmk
 if [[ ! -d ~/.config/latexmk ]]; then
@@ -87,8 +92,6 @@ if [[ ! -d ~/.config/zathura ]]; then
 fi
 ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
 
-
-if ; then
 # configure hammerspoon
 if [[ ${UNAME} == "Darwin" ]] && [[ -d ~/.hammerspoon ]]; then
   ln -fs ${DOTPATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua

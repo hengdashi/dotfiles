@@ -1,3 +1,7 @@
+if !exists("g:os")
+  let g:os = substitute(system('uname'), '\n', '', '')
+endif
+
 " Install vim-plug if not installed
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -13,7 +17,11 @@ let g:mapleader="\<Space>"
 let g:maplocalleader=","
 " set color to be 256 
 set t_Co=256
-let g:python3_host_prog='~/miniconda3/envs/esv/bin/python'
+if g:os =~ "Darwin"
+  let g:python3_host_prog = '/usr/local/Caskroom/miniconda/base/bin/python'
+elseif g:os =~ "Linux"
+  let g:python3_host_prog = '~/miniconda3/bin/python'
+endif
 let g:coc_global_extensions = ['coc-python', 'coc-texlab']
 
 call plug#begin('~/.local/share/nvim/plugged')
