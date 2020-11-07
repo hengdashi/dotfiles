@@ -20,16 +20,16 @@ if [[ ${UNAME} == "Darwin" ]]; then
   # switch default shell to zsh
   [ "/usr/local/bin/zsh" != $(echo $SHELL) ] && chsh -s /usr/local/bin/zsh
 
+
 # install applications for linux
 elif [[ ${UNAME} == "Linux" ]]; then
-
   # add newest yarn
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
   sudo apt update && sudo apt install -y -o Dpkg::Options::="--force-overwrite" zsh git ripgrep bat yarn
 
   # switch default shell to zsh
-  [ "zsh" != $(basename $(echo $SHELL)) ] && chsh -s /usr/bin/zsh
+  [ "zsh" != $(basename $(echo $SHELL)) ] && sudo chsh -s /usr/bin/zsh
 
   # install miniconda
   if [[ ! -d ~/miniconda ]]; then
