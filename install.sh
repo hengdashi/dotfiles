@@ -26,7 +26,7 @@ elif [[ ${UNAME} == "Linux" ]]; then
   # add newest yarn
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo apt update && sudo apt install -o Dpkg::Options::="--force-overwrite" zsh git ripgrep bat yarn
+  sudo apt update && sudo apt install -y -o Dpkg::Options::="--force-overwrite" zsh git ripgrep bat yarn
 
   # switch default shell to zsh
   [ "zsh" != $(basename $(echo $SHELL)) ] && chsh -s /usr/bin/zsh
@@ -56,34 +56,25 @@ git config --global user.email "hengda.shi@engineering.ucla.edu"
 git config --global core.editor "vim"
 
 
-# configure latexmk
-if [[ ! -d ~/.config/latexmk ]]; then
-  mkdir ~/.config/latexmk
-fi
-ln -fs ${DOTPATH}/latexmk/latexmkrc ~/.config/latexmk/latexmkrc
+# macOS configuration
+if [[ ${UNAME} == "Darwin" ]]; then
+  # configure latexmk
+  [[ ! -d ~/.config/latexmk ]] && mkdir ~/.config/latexmk
+  ln -fs ${DOTPATH}/latexmk/latexmkrc ~/.config/latexmk/latexmkrc
+
+  # configure zathura
+  [[ ! -d ~/.config/zathura ]] && mkdir ~/.config/zathura
+  ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
+
+  # configure hammerspoon
+  [[ -d ~/.hammerspoon ]] && ln -fs ${DOTPATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
 
 
-# configure zathura
-if [[ ! -d ~/.config/zathura ]]; then
-  mkdir ~/.config/zathura
-fi
-ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
-
-
-# configure hammerspoon
-if [[ ${UNAME} == "Darwin" ]] && [[ -d ~/.hammerspoon ]]; then
-  ln -fs ${DOTPATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
-fi
-
-
-# configure karabiner
-if [[ ${UNAME} == "Darwin" ]] && [[ -d ~/.config/karabiner ]]; then
-  ln -fs ${DOTPATH}/karabiner/custom-config.json ~/.config/karabiner/assets/complex_modifications/custom-settings.json
+  # configure karabiner
+  [[ -d ~/.config/karabiner ]] && ln -fs ${DOTPATH}/karabiner/custom-config.json ~/.config/karabiner/assets/complex_modifications/custom-settings.json
 fi
 
 
 # configure tmux
-if [[ ! -e ~/.tmux.conf ]]; then
-  ln -fs ${DOTPATH}/tmux/.tmux.conf ~/.tmux.conf
-fi
+[[ ! -e ~/.tmux.conf ]] && ln -fs ${DOTPATH}/tmux/.tmux.conf ~/.tmux.conf
 
