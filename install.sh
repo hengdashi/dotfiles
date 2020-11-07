@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # os initialization script (macos->Darwin, linux->Linux)
 UNAME=$(uname)
