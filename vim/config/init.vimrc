@@ -30,6 +30,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   " ===========================================================================
   " start page
   Plug 'mhinz/vim-startify'
+  " show modified lines
+  Plug 'mhinz/vim-signify'
   " statusline
   Plug 'itchyny/lightline.vim'
   " icon
