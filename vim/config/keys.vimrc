@@ -80,7 +80,8 @@ if has_key(plugs, 'vim-fugitive')
 endif
 
 if has_key(plugs, 'defx.nvim')
-  nnoremap <leader>e :Defx -split=vertical -winwidth=25 -direction=botright<CR>
+  " nnoremap <leader>e :Defx -split=vertical -winwidth=`&columns / 2` -direction=botright<CR>
+  nnoremap <leader>e :Defx -split=floating -winheight=`&lines/2` -winwidth=`&columns-(&columns/6)` -winrow=`&lines/8` -wincol=`&columns/12`<CR>
 
   autocmd FileType defx call s:defx_key_mappings()
 
