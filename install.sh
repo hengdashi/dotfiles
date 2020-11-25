@@ -7,19 +7,18 @@ DOTPATH=$(cd $(dirname "$0") && pwd -P)
 
 # install applications for macos
 if [[ ${UNAME} == "Darwin" ]]; then
+  # install xcode tools
+  sudo xcode-select --install
+
   # install homebrew
   if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
 
-  # install basic packages
-  brew install zsh git ripgrep bat yarn
-
-  # TODO: install other packages and casks
+  ln -fs ${DOTPATH}/homebrew/Brewfile/Brewfile ~/Brewfile
 
   # switch default shell to zsh
   [ "/usr/local/bin/zsh" != $(echo $SHELL) ] && chsh -s /usr/local/bin/zsh
-
 
 # install applications for linux
 elif [[ ${UNAME} == "Linux" ]]; then

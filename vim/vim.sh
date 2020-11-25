@@ -13,6 +13,7 @@ yarn global add neovim
 rm -r ~/.config/nvim
 mkdir -p ~/.config/nvim/config
 mkdir -p ~/.local/share/nvim/plugged
+mkdir -p ~/.vim/files/info
 ln -fs ${CWD}/init.vim ~/.config/nvim/init.vim
 
 if [[ ${UNAME} == "Darwin" ]]; then
