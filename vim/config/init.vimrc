@@ -20,7 +20,7 @@ set t_Co=256
 if g:os =~ "Darwin"
   let g:python3_host_prog = '/usr/local/Caskroom/miniconda/base/bin/python'
 elseif g:os =~ "Linux"
-  let g:python3_host_prog = '~/miniconda3/bin/python'
+  let g:python3_host_prog = '~/miniconda/bin/python'
 endif
 let g:coc_global_extensions = ['coc-python', 'coc-texlab']
 

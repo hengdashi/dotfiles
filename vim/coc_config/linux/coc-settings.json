@@ -1,5 +1,5 @@
 {
-  "python.pythonPath": "~/miniconda3/bin/python",
+  "python.pythonPath": "~/miniconda/bin/python",
   "python.condaPath": "/usr/local/bin/conda",
   "diagnostic.displayByAle": false,
   "diagnostic.checkCurrentLine": true,
@@ -8,6 +8,6 @@
   "python.linting.pylintArgs": ["--rcfile=/tmp/pylintrc"],
   "python.formatting.provider": "yapf",
   "python.jediEnabled": false,
-  "python.jediPath": "~/miniconda3/lib/python3.8/site-packages"
+  "python.jediPath": "~/miniconda/lib/python3.8/site-packages"
 }
 
