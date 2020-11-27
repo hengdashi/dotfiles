@@ -15,7 +15,9 @@ if [[ ${UNAME} == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
 
-  ln -fs ${DOTPATH}/homebrew/Brewfile/Brewfile ~/Brewfile
+  cd ${DOTPATH}/homebrew/Brewfile/Brewfile
+  brew bundle
+  cd ${DOTPATH}
 
   # switch default shell to zsh
   [ "/usr/local/bin/zsh" != $(echo $SHELL) ] && chsh -s /usr/local/bin/zsh

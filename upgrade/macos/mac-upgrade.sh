@@ -28,7 +28,7 @@ echo "################################"
 
 echo "Cleanup Uninstalled Formulas and Caches"
 cd ${BREWFILEPATH}
-brew bundle cleanup --force
+brew bundle cleanup --no-lock --force
 brew cleanup
 
 echo "################################"
