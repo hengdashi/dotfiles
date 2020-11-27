@@ -1,9 +1,21 @@
 #!/usr/local/bin/zsh
 
+# linux-upgrade.sh
+
 DOTPATH=$(cd $(dirname $(readlink "$0"))/../.. && pwd -P)
 BREWFILEPATH=${DOTPATH}/homebrew/Brewfile
 
 echo "################################"
+
+echo "Upgrade zprezto"
+# source prezto first for non-interactive shell
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+zprezto-update
+
+echo "################################"
+
 echo "Upgrade Homebrew Formulas"
 brew outdated
 brew update

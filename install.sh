@@ -39,6 +39,7 @@ elif [[ ${UNAME} == "Linux" ]]; then
     source ~/miniconda/bin/activate
     conda init
     rm ~/miniconda.sh
+    conda install -y pip
   fi
 fi
 
