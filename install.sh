@@ -37,12 +37,15 @@ elif [[ ${UNAME} == "Linux" ]]; then
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
     bash ~/miniconda.sh -b -p $HOME/miniconda
     source ~/miniconda/bin/activate
-    conda init
     rm ~/miniconda.sh
-    conda install -y pip
   fi
 fi
 
+
+# init miniconda and install pip
+conda init $(basename ${SHELL})
+conda install -y pip
+pip install neovim neovim-remote yapf jedi pylint pynvim
 
 # install zsh distribution prezto
 ${DOTPATH}/zsh/prezto/prezto.sh
