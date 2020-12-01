@@ -15,7 +15,7 @@ if [[ ${UNAME} == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
 
-  cd ${DOTPATH}/homebrew/Brewfile/Brewfile
+  cd ${DOTPATH}/homebrew/Brewfile
   brew bundle
   cd ${DOTPATH}
 
