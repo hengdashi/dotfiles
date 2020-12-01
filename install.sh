@@ -19,6 +19,8 @@ if [[ ${UNAME} == "Darwin" ]]; then
   brew bundle
   cd ${DOTPATH}
 
+  ln -fs ${DOTPATH}/upgrade/macos/mac-upgrade.sh ~/mac-upgrade.sh
+
   # switch default shell to zsh
   [ "/usr/local/bin/zsh" != $(echo $SHELL) ] && chsh -s /usr/local/bin/zsh
 
@@ -31,6 +33,8 @@ elif [[ ${UNAME} == "Linux" ]]; then
 
   # switch default shell to zsh
   [ "zsh" != $(basename $(echo $SHELL)) ] && sudo chsh -s /usr/bin/zsh
+
+  ln -fs ${DOTPATH}/upgrade/linux/linux-upgrade.sh ~/linux-upgrade.sh
 
   # install miniconda
   if [[ ! -d ~/miniconda ]]; then
