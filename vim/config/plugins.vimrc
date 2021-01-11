@@ -464,7 +464,7 @@ endif
 
 " templates config
 if has_key(plugs, 'vim-template')
-  let g:username = 'hshi-esv'
-  let g:email    = 'hshi@etsy.com'
+  let g:username = 'Hengda Shi'
+  let g:email    = 'hengda.shi@cs.ucla.edu'
 endif
 
