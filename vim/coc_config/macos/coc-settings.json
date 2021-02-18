@@ -1,5 +1,5 @@
 {
-  "python.pythonPath": "/usr/local/Caskroom/miniconda/base/envs/mllib/bin/python",
+  "python.pythonPath": "/usr/local/Caskroom/miniconda/base/bin/python",
   "python.condaPath": "/usr/local/bin/conda",
   "diagnostic.displayByAle": false,
   "diagnostic.checkCurrentLine": true,
@@ -8,6 +8,6 @@
   "python.linting.pylintArgs": ["--rcfile=/tmp/pylintrc"],
   "python.formatting.provider": "yapf",
   "python.jediEnabled": false,
-  "python.jediPath": "/usr/local/Caskroom/miniconda/base/envs/mllib/lib/python3.8/site-packages"
+  "python.jediPath": "/usr/local/Caskroom/miniconda/base/lib/python3.8/site-packages"
 }
 
