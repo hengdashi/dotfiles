@@ -7,11 +7,17 @@
 ##============================================================================##
 ## latex commands; %S: src, %O: option, %D: dest, %B: src without extension
 # $xelatex =~ s/^xelatex/xelatex --shell-escape -halt-on-error -interaction=nonstopmode -synctex=1/;
-$xelatex    = 'xelatex --shell-escape -halt-on-error -interaction=nonstopmode -synctex=1 %O %S';
-$max_repeat = 5;
+# $xelatex    = 'xelatex --shell-escape -halt-on-error -interaction=nonstopmode -synctex=1 %O %S';
+$pdflatex = 'pdflatex -synctex=1 --interaction=nonstopmode -file-line-error';
+# $pdflatex = 'pdflatex';
+$max_repeat = 2;
 ##============================================================================##
 ## pdf mode
-$pdf_mode   = 5; # 0: none, 1: pdflatex, 2: ps2pdf, 3: dvipdf
+# $pdf_mode   = 5; # 0: none, 1: pdflatex, 2: ps2pdf, 3: dvipdf
+$pdf_mode   = 1; # 0: none, 1: pdflatex, 2: ps2pdf, 3: dvipdf
+
+# $bibtex_use = 1;
+
 ##============================================================================##
 ## cleanup extensions
 $clean_ext = "vrb xdv synctex.gz nav snm fls dvi";
