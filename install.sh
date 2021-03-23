@@ -81,6 +81,10 @@ if [[ ${UNAME} == "Darwin" ]]; then
 
   # configure karabiner
   [[ -d ~/.config/karabiner ]] && ln -fs ${DOTPATH}/karabiner/custom-config.json ~/.config/karabiner/assets/complex_modifications/custom-settings.json
+else
+  # configure alacritty
+  [[ ! -d ~/.config/alacritty ]] && mkdir ~/.config/alacritty
+  ln -fs ${DOTPATH}/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 fi
 
 
