@@ -12,7 +12,7 @@ if [[ ${UNAME} == "Darwin" ]]; then
 
   # install homebrew
   if ! command -v brew &> /dev/null; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
   cd ${DOTPATH}/homebrew/Brewfile
@@ -47,9 +47,11 @@ fi
 
 
 # init miniconda and install pip
-conda init $(basename ${SHELL})
-conda install -y pip
-pip install neovim neovim-remote yapf jedi pylint pynvim
+if ! command -v conda &> /dev/null; then
+  conda init $(basename ${SHELL})
+  conda install -y pip
+  pip install neovim neovim-remote yapf jedi pylint pynvim
+fi
 
 # install zsh distribution prezto
 ${DOTPATH}/zsh/prezto/prezto.sh

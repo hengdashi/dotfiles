@@ -5,7 +5,7 @@
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>AlternateMouseScroll</key>
-	<false/>
+	<true/>
 	<key>AutoCommandHistory</key>
 	<false/>
 	<key>Command</key>
