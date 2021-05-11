@@ -6,7 +6,11 @@ CWD=$(cd $(dirname "$0") && pwd -P)
 
 # install neovim dependencies
 pip install neovim
-yarn global add neovim 
+if ! command -v yarn &> /dev/null; then
+  npm install -g neovim
+else
+  yarn global add neovim 
+fi
 
 
 # link all neovim config

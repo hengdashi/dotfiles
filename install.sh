@@ -18,7 +18,7 @@ if [[ ${UNAME} == "Darwin" ]]; then
   fi
 
 
-  if [ "${COMMAND}" -eq "home" ]; then
+  if [[ "${COMMAND}" == "home" ]]; then
     cd ${DOTPATH}/homebrew/Brewfile
     brew bundle
     cd ${DOTPATH}
@@ -71,7 +71,7 @@ ${DOTPATH}/vim/vim.sh
 
 # configure git
 git config --global user.name "Hengda Shi"
-if [ "${COMMAND}" -eq "home" ]; then
+if [[ "${COMMAND}" == "home" ]]; then
   git config --global user.email "hengda.shi@engineering.ucla.edu"
 elif [ $# -lt 2 ]; then
   git config --global user.email "${EMAIL}"
@@ -82,7 +82,7 @@ git config --global core.editor "vim"
 # macOS configuration
 if [[ ${UNAME} == "Darwin" ]]; then
 
-  if [ "${COMMAND}" -eq "home" ]; then
+  if [[ "${COMMAND}" == "home" ]]; then
 
     # configure latexmk
     [[ ! -d ~/.config/latexmk ]] && mkdir ~/.config/latexmk
@@ -104,7 +104,7 @@ if [[ ${UNAME} == "Darwin" ]]; then
 
 else
 
-  if [ "${COMMAND}" -eq "home" ]; then
+  if [[ "${COMMAND}" == "home" ]]; then
 
     # configure alacritty
     [[ ! -d ~/.config/alacritty ]] && mkdir ~/.config/alacritty
