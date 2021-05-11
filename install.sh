@@ -3,6 +3,8 @@
 # os initialization script (macos->Darwin, linux->Linux)
 UNAME=$(uname)
 DOTPATH=$(cd $(dirname "$0") && pwd -P)
+COMMAND="$1"
+EMAIL="$2"
 
 
 # install applications for macos
@@ -15,11 +17,17 @@ if [[ ${UNAME} == "Darwin" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
-  cd ${DOTPATH}/homebrew/Brewfile
-  brew bundle
-  cd ${DOTPATH}
 
-  ln -fs ${DOTPATH}/upgrade/macos/mac-upgrade.sh ~/mac-upgrade.sh
+  if [ "${COMMAND}" -eq "home" ]; then
+    cd ${DOTPATH}/homebrew/Brewfile
+    brew bundle
+    cd ${DOTPATH}
+    ln -fs ${DOTPATH}/upgrade/macos/mac-upgrade.sh ~/mac-upgrade.sh
+  else
+    # install minimum amount of packages
+    brew install "bat" "git" "git-lfs" "grep" "htop" "neovim" "ripgrep" "tmux" "trash-cli" "wget" "zsh" "zsh-completions"
+    brew install --cask "1password" "alfred" "hammerspoon" "iterm2" "karabiner-elements" "miniconda" "slack" "the-unarchiver" "visual-studio-code" "zoom"
+  fi
 
   # switch default shell to zsh
   [ "/usr/local/bin/zsh" != $(echo $SHELL) ] && chsh -s /usr/local/bin/zsh
@@ -63,30 +71,47 @@ ${DOTPATH}/vim/vim.sh
 
 # configure git
 git config --global user.name "Hengda Shi"
-git config --global user.email "hengda.shi@engineering.ucla.edu"
+if [ "${COMMAND}" -eq "home" ]; then
+  git config --global user.email "hengda.shi@engineering.ucla.edu"
+elif [ $# -lt 2 ]; then
+  git config --global user.email "${EMAIL}"
+fi
 git config --global core.editor "vim"
 
 
 # macOS configuration
 if [[ ${UNAME} == "Darwin" ]]; then
-  # configure latexmk
-  [[ ! -d ~/.config/latexmk ]] && mkdir ~/.config/latexmk
-  ln -fs ${DOTPATH}/latexmk/latexmkrc ~/.config/latexmk/latexmkrc
 
-  # configure zathura
-  [[ ! -d ~/.config/zathura ]] && mkdir ~/.config/zathura
-  ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
+  if [ "${COMMAND}" -eq "home" ]; then
 
-  # configure hammerspoon
-  [[ -d ~/.hammerspoon ]] && ln -fs ${DOTPATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
+    # configure latexmk
+    [[ ! -d ~/.config/latexmk ]] && mkdir ~/.config/latexmk
+    ln -fs ${DOTPATH}/latexmk/latexmkrc ~/.config/latexmk/latexmkrc
 
+    # configure zathura
+    [[ ! -d ~/.config/zathura ]] && mkdir ~/.config/zathura
+    ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
 
-  # configure karabiner
-  [[ -d ~/.config/karabiner ]] && ln -fs ${DOTPATH}/karabiner/custom-config.json ~/.config/karabiner/assets/complex_modifications/custom-settings.json
+  else
+
+    # configure hammerspoon
+    [[ -d ~/.hammerspoon ]] && ln -fs ${DOTPATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
+
+    # configure karabiner
+    [[ -d ~/.config/karabiner ]] && ln -fs ${DOTPATH}/karabiner/custom-config.json ~/.config/karabiner/assets/complex_modifications/custom-settings.json
+
+  fi
+
 else
-  # configure alacritty
-  [[ ! -d ~/.config/alacritty ]] && mkdir ~/.config/alacritty
-  ln -fs ${DOTPATH}/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+
+  if [ "${COMMAND}" -eq "home" ]; then
+
+    # configure alacritty
+    [[ ! -d ~/.config/alacritty ]] && mkdir ~/.config/alacritty
+    ln -fs ${DOTPATH}/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+
+  fi
+
 fi
 
 
