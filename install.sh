@@ -95,10 +95,16 @@ if [[ ${UNAME} == "Darwin" ]]; then
   else
 
     # configure hammerspoon
-    [[ -d ~/.hammerspoon ]] && ln -fs ${DOTPATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
+    if [[ ! -d ~/.hammerspoon ]]; then
+      mkdir -p ~/.hammerspoon/
+    fi
+    ln -fs ${DOTPATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
 
     # configure karabiner
-    [[ -d ~/.config/karabiner ]] && ln -fs ${DOTPATH}/karabiner/custom-config.json ~/.config/karabiner/assets/complex_modifications/custom-settings.json
+    if [[ ! -d ~/.config/karabiner ]]; then
+      mkdir -p ~/.config/karabiner/assets/complex_modifications/
+    fi
+    ln -fs ${DOTPATH}/karabiner/custom-config.json ~/.config/karabiner/assets/complex_modifications/custom-settings.json
 
   fi
 
