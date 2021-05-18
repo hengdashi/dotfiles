@@ -17,6 +17,15 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
+" remap copy and cut
+nnoremap x "_x
+nnoremap d "_d
+nnoremap D "_D
+vnoremap d "_d
+
+nnoremap <leader>d ""d
+nnoremap <leader>D ""D
+vnoremap <leader>d ""d
 
 " make up and down could move on the same line
 nnoremap j gj
@@ -49,6 +58,15 @@ au FileType fzf tunmap <buffer> <Esc>
 if has_key(plugs, 'fzf.vim')
   nnoremap <leader>f :Files<CR>
   nnoremap <leader>F :Files ~<CR>
+
+  let g:fzf_commits_log_options = '--graph --color=always
+        \ --format="%C(yellow)%h%C(red)%d%C(reset)
+        \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
+  nnoremap <leader>c :Commits<CR>
+  nnoremap <leader>bc :BCommits<CR>
+
+  nnoremap <Leader>g :Rg<CR>
+  nnoremap <Leader>G :Rg!<CR>
 endif
 
 

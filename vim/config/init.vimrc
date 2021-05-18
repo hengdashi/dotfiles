@@ -54,10 +54,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " fuzzy file finder
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    " git integration
-    Plug 'tpope/vim-fugitive'
-    " fzf preview
-    Plug 'junegunn/fzf.vim'
+  " git integration
+  Plug 'tpope/vim-fugitive'
+  " fzf preview
+  Plug 'junegunn/fzf.vim'
 
   " file explorer
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }

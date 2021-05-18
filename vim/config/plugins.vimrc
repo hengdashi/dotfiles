@@ -302,7 +302,8 @@ if has_key(plugs, 'fzf')
     call setbufvar(buf, '&signcolumn', 'no')
 
     let height = float2nr(20)
-    let width = float2nr(80)
+    " let width = float2nr(200)
+    let width = float2nr(&columns)
     let horizontal = float2nr((&columns - width) / 2)
     let vertical = 1
 
@@ -325,7 +326,7 @@ if has_key(plugs, 'fzf')
     command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
   endif
 
-  let $FZF_DEFAULT_OPTS = "--color=dark --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7 --layout=reverse --margin=1,4 --preview-window 'right:30%' --preview 'bat --theme='Dracula' --style=changes --color always {}'"
+  let $FZF_DEFAULT_OPTS = "--color=dark --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7 --layout=reverse --margin=1,4 --preview-window 'right:50%' --preview 'bat --theme='Dracula' --style=changes --color always {}'"
 
   " Customize fzf colors to match your color scheme
   " - fzf#wrap translates this to a set of `--color` options
