@@ -8,7 +8,7 @@ if has_key(plugs, 'dracula')
 
   function SetupCursorLine() abort
     hi clear CursorLine
-    hi CursorLine cterm=underline term=underline gui=underline
+    hi CursorLine cterm=underline term=underline gui=underline guisp=white
   endfunction
 
   augroup dracula_customization
@@ -17,8 +17,8 @@ if has_key(plugs, 'dracula')
     autocmd ColorScheme dracula call SetupCursorLine()
   augroup END
 
-  colorscheme dracula
   set termguicolors
+  colorscheme dracula
 endif
 
 
@@ -465,6 +465,6 @@ endif
 " templates config
 if has_key(plugs, 'vim-template')
   let g:username = 'Hengda Shi'
-  let g:email    = 'hengda.shi@cs.ucla.edu'
+  let g:email    = 'hengdas@ziprecruiter.com'
 endif
 
