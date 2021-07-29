@@ -1,6 +1,6 @@
 #! /usr/bin/env lua
 --
--- basics.lua
+-- lua/basics.lua
 -- Copyright (C) 2021 Hengda Shi <hengda.shi@cs.ucla.edu>
 --
 -- Distributed under terms of the MIT license.
@@ -8,6 +8,10 @@
 
 local opt = vim.opt
 local g = vim.g
+
+
+-- autosave
+g.auto_save = true
 
 
 -- indentation
@@ -32,17 +36,18 @@ opt.showmatch      = true  -- show matching brackets
 
 
 -- general display
-opt.title       = true          -- set window title
-opt.laststatus  = 2             -- always show statusline
-opt.showtabline = 2             -- always show tabline
-opt.signcolumn  = true          -- always show sign column
-opt.showmode    = false         -- not show current mode in command-line (shown by statusline)
-opt.showcmd     = true          -- show already typed keys when more are expected
-opt.ttyfast     = true          -- faster redrawing
-opt.lazyredraw  = true          -- only redraw when necessary
-opt.splitbelow  = true          -- open new windows below
-opt.splitright  = true          -- open new windows on the right
-opt.synmaxcol   = 800           -- only highlight the first 800 columns
+opt.title         = true        -- set window title
+opt.laststatus    = 2           -- always show statusline
+opt.showtabline   = 2           -- always show tabline
+opt.signcolumn    = "yes"       -- always show sign column
+opt.showmode      = false       -- not show current mode in command-line (shown by statusline)
+opt.showcmd       = true        -- show already typed keys when more are expected
+opt.ttyfast       = true        -- faster redrawing
+opt.lazyredraw    = true        -- only redraw when necessary
+opt.splitbelow    = true        -- open new windows below
+opt.splitright    = true        -- open new windows on the right
+opt.termguicolors = true        -- make sure the gui is in colors
+opt.synmaxcol     = 800         -- only highlight the first 800 columns
 opt.display:append("lastline")  -- always try to display the paragraph's last line
 
 

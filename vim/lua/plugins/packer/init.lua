@@ -1,6 +1,6 @@
 #! /usr/bin/env lua
 --
--- init.lua
+-- plugins/packer/init.lua
 -- Copyright (C) 2021 Hengda Shi <hengda.shi@cs.ucla.edu>
 --
 -- Distributed under terms of the MIT license.
@@ -33,6 +33,7 @@ if not present then
     else
         error("couldn't clone packer!\npacker path: " .. packer_path)
     end
+end
 
 return packer.init{
     display = {

@@ -11,6 +11,7 @@ local modules = {
   "basics",
   "install",
   "mappings",
+  "utils"
 }
 
 for _, m in ipairs(modules) do
