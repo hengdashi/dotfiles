@@ -8,7 +8,7 @@
 
 vim.g.os = vim.fn.system('uname')
 
-local present, _ = pcall(require, "plugins.packer.init")
+local present, _ = pcall(require, "plugins.packer")
 local packer
 
 if present then
@@ -52,7 +52,7 @@ return packer.startup(
             "norcalli/nvim-colorizer.lua",
             event = "BufRead",
             config = function()
-                require("plugins.others").colorizer()
+                require "plugins.colorizer"
             end
         }
 
@@ -61,7 +61,8 @@ return packer.startup(
             after = "nvim-base16.lua",
             config = function()
                 require "plugins.icons"
-            end
+            end,
+            requires = "kyazdani42/nvim-web-devicons"
         }
 
 
@@ -123,7 +124,7 @@ return packer.startup(
             "onsails/lspkind-nvim",
             event = "BufRead",
             config = function()
-                require("plugins.others").lspkind()
+                require "plugins.lspkind"
             end
         }
 
@@ -131,7 +132,7 @@ return packer.startup(
         -- file explorer
         use {
             "kyazdani42/nvim-tree.lua",
-            cmd = "NvimTreeToggle",
+            cmd = { "NvimTreeToggle", "NvimTreeFocus" },
             config = function()
                 require "plugins.nvimtree"
             end
@@ -220,7 +221,7 @@ return packer.startup(
             "terrortylor/nvim-comment",
             cmd = "CommentToggle",
             config = function()
-                require("plugins.others").comment()
+                require "plugins.comment"
             end
         }
 
@@ -240,7 +241,7 @@ return packer.startup(
             "karb94/neoscroll.nvim",
             event = "WinScrolled",
             config = function()
-                require("plugins.others").neoscroll()
+                require "plugins.neoscroll"
             end
         }
 
@@ -249,7 +250,7 @@ return packer.startup(
             "lukas-reineke/indent-blankline.nvim",
             event = "BufRead",
             setup = function()
-                require("plugins.others").blankline()
+                require "plugins.indent"
             end
         }
     end

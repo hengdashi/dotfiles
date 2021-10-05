@@ -1,6 +1,6 @@
 #! /usr/bin/env lua
 --
--- lua/mappings.lua
+-- lua/keymappings.lua
 -- Copyright (C) 2021 Hengda Shi <hengda.shi@cs.ucla.edu>
 --
 -- Distributed under terms of the MIT license.
@@ -55,7 +55,17 @@ map("n", "<TAB>", ":BufferLineCycleNext<CR>", opt)
 map("n", "<S-TAB>", ":BufferLineCyclePrev<CR>", opt)
 
 
+-- nvim-comment
 if packer_plugins['nvim-comment'] and packer_plugins['nvim-comment'].loaded then
     map("n", "<LEADER>c<LEADER>", ":CommentToggle<CR>", opt)
     map("v", "<LEADER>c<LEADER>", ":CommentToggle<CR>", opt)
+end
+
+
+-- telescope
+if packer_plugins['telescope.nvim'] and packer_plugins['telescope.nvim'].loaded then
+    map("n", "<LEADER>ff", ":Telescope find_files<CR>", opt)
+    map("n", "<LEADER>fg", ":Telescope live_grep<CR>", opt)
+    map("n", "<LEADER>fb", ":Telescope buffers<CR>", opt)
+    map("n", "<LEADER>fh", ":Telescope help_tags<CR>", opt)
 end

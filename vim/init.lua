@@ -8,9 +8,9 @@
 -- entry point where all modules are loaded
 
 local modules = {
-  "basics",
+  "settings",
   "install",
-  "mappings",
+  "keymappings",
   "utils"
 }
 
