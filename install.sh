@@ -34,10 +34,12 @@ if [[ ${UNAME} == "Darwin" ]]; then
 
 # install applications for linux
 elif [[ ${UNAME} == "Linux" ]]; then
-  sudo apt update && sudo apt install -y -o Dpkg::Options::="--force-overwrite" zsh git ripgrep bat
+  apt update && apt install -y -o Dpkg::Options::="--force-overwrite" zsh git ripgrep bat
 
   # switch default shell to zsh
-  [ "zsh" != $(basename $(echo $SHELL)) ] && sudo chsh -s /usr/bin/zsh
+  if command -v sudo &> /dev/null; then
+    [ "zsh" != $(basename $(echo $SHELL)) ] && sudo chsh -s /usr/bin/zsh
+  fi
 
   ln -fs ${DOTPATH}/upgrade/linux/linux-upgrade.sh ~/linux-upgrade.sh
 
@@ -50,11 +52,13 @@ elif [[ ${UNAME} == "Linux" ]]; then
   fi
 fi
 
+if command -v conda &> /dev/null; then
+  conda init $(basename ${SHELL})
+  conda install -y pip
+fi
 
 # init miniconda and install pip
 if ! command -v conda &> /dev/null; then
-  conda init $(basename ${SHELL})
-  conda install -y pip
   pip install neovim neovim-remote yapf jedi pylint pynvim
 fi
 
