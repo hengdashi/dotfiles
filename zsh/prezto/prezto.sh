@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 CWD=$(cd $(dirname "$0") && pwd -P)
 
