@@ -34,7 +34,7 @@ if [[ ${UNAME} == "Darwin" ]]; then
 
 # install applications for linux
 elif [[ ${UNAME} == "Linux" ]]; then
-  apt update && apt install -y -o Dpkg::Options::="--force-overwrite" zsh git ripgrep bat
+  apt update && apt install -y -o Dpkg::Options::="--force-overwrite" zsh git ripgrep bat neovim
 
   # switch default shell to zsh
   if command -v sudo &> /dev/null; then
