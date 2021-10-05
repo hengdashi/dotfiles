@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+#
+# vim.sh
+# Copyright (C) 2021 Hengda Shi <hengdas@engineering.ucla.edu>
+#
+# Distributed under terms of the MIT license.
+#
 
 UNAME=$(uname)
 CWD=$(cd $(dirname "$0") && pwd -P)
@@ -14,7 +20,7 @@ fi
 
 
 # link all neovim config
-rm -r ~/.config/nvim
+[[ -d ~/.config/nvim ]] && rm -r ~/.config/nvim
 mkdir -p ~/.config/nvim/config
 mkdir -p ~/.local/share/nvim/plugged
 mkdir -p ~/.vim/files/info

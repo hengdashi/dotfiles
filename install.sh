@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+#
+# install.sh
+# Copyright (C) 2021 Hengda Shi <hengdas@engineering.ucla.edu>
+#
+# Distributed under terms of the MIT license.
+#
 
 # os initialization script (macos->Darwin, linux->Linux)
 UNAME=$(uname)
@@ -25,21 +31,13 @@ if [[ ${UNAME} == "Darwin" ]]; then
     ln -fs ${DOTPATH}/upgrade/macos/mac-upgrade.sh ~/mac-upgrade.sh
   else
     # install minimum amount of packages
-    brew install "bat" "git" "git-lfs" "grep" "htop" "neovim" "ripgrep" "tmux" "trash-cli" "wget" "zsh" "zsh-completions"
+    brew install "bat" "git" "git-lfs" "grep" "htop" "neovim" "ripgrep" "tmux" "trash-cli" "wget"
     brew install --cask "1password" "alfred" "hammerspoon" "iterm2" "karabiner-elements" "miniconda" "slack" "the-unarchiver" "visual-studio-code" "zoom"
   fi
 
-  # switch default shell to zsh
-  [ "/usr/local/bin/zsh" != $(echo $SHELL) ] && chsh -s /usr/local/bin/zsh
-
 # install applications for linux
 elif [[ ${UNAME} == "Linux" ]]; then
-  apt update && apt install -y -o Dpkg::Options::="--force-overwrite" zsh git ripgrep bat neovim
-
-  # switch default shell to zsh
-  if command -v sudo &> /dev/null; then
-    [ "zsh" != $(basename $(echo $SHELL)) ] && sudo chsh -s /usr/bin/zsh
-  fi
+  apt update && apt install -y -o Dpkg::Options::="--force-overwrite" git ripgrep bat neovim
 
   ln -fs ${DOTPATH}/upgrade/linux/linux-upgrade.sh ~/linux-upgrade.sh
 
@@ -62,9 +60,11 @@ if ! command -v conda &> /dev/null; then
   pip install neovim neovim-remote yapf jedi pylint pynvim
 fi
 
-# install zsh distribution prezto
-${DOTPATH}/zsh/prezto/prezto.sh
+# install zsh
+${DOTPATH}/zsh/zsh.sh
 
+# link p10k theme
+ln -s ${DOTPATH}/themes/p10k/.p10k.zsh ~/.p10k.zsh
 
 # install vim configuration
 ${DOTPATH}/vim/vim.sh

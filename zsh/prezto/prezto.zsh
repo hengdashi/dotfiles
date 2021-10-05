@@ -1,4 +1,10 @@
 #!/usr/bin/env zsh
+#
+# prezto.zsh
+# Copyright (C) 2021 Hengda Shi <hengdas@engineering.ucla.edu>
+#
+# Distributed under terms of the MIT license.
+#
 
 CWD=$(cd $(dirname "$0") && pwd -P)
 
