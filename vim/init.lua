@@ -6,14 +6,10 @@
 -- Distributed under terms of the MIT license.
 --
 -- entry point where all modules are loaded
+--
 
-local modules = {
-  "settings",
-  "install",
-  "keymappings",
-  "utils"
-}
+local ok, err = pcall(require, "core")
 
-for _, m in ipairs(modules) do
-  pcall(require, m)
+if not ok then
+  error("Error loading core" .. "\n\n" .. err)
 end

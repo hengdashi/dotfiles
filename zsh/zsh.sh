@@ -28,4 +28,6 @@ fi
 # install prezto
 ${CWD}/prezto/prezto.zsh
 
-ln -s ${CWD}/.zshrc ~/.zshrc
+if [[ ${UNAME} == "Linux" ]]; then
+  ln -s ${CWD}/zshrc/linux/.zshrc ~/.zshrc
+fi
