@@ -29,5 +29,5 @@ fi
 ${CWD}/prezto/prezto.zsh
 
 if [[ ${UNAME} == "Linux" ]]; then
-  ln -s ${CWD}/zshrc/linux/.zshrc ~/.zshrc
+  ln -sf ${CWD}/zshrc/linux/.zshrc ~/.zshrc
 fi

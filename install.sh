@@ -64,7 +64,7 @@ fi
 ${DOTPATH}/zsh/zsh.sh
 
 # link p10k theme
-ln -s ${DOTPATH}/themes/p10k/.p10k.zsh ~/.p10k.zsh
+ln -sf ${DOTPATH}/themes/p10k/.p10k.zsh ~/.p10k.zsh
 
 # install vim configuration
 ${DOTPATH}/vim/vim.sh
