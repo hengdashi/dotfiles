@@ -9,6 +9,12 @@ echo "Upgrade zprezto"
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+CWD=$(pwd)
+cd ${ZDOTDIR:-$HOME}/.zprezto
+git pull --rebase --autostash
+cd ${CWD}
+
 zprezto-update
 
 echo "################################"
