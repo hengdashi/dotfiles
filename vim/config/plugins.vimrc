@@ -388,6 +388,15 @@ endif
 
 
 " =============================================================================
+" nvim-cursorline
+" =============================================================================
+
+" if has_key(plugs, 'nvim-cursorline')
+"   let g:cursorword_highlight = true
+" endif
+
+
+" =============================================================================
 " rainbow
 " =============================================================================
 
@@ -464,7 +473,8 @@ endif
 
 " templates config
 if has_key(plugs, 'vim-template')
-  let g:username = 'Hengda Shi'
-  let g:email    = 'hengdas@ziprecruiter.com'
+  let g:username = trim(system('git config user.name'))
+  let g:email    = trim(system('git config user.email'))
+
 endif
 

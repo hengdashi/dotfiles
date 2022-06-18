@@ -22,7 +22,7 @@ if g:os =~ "Darwin"
 elseif g:os =~ "Linux"
   let g:python3_host_prog = '~/miniconda/bin/python'
 endif
-let g:coc_global_extensions = ['coc-python', 'coc-texlab']
+let g:coc_global_extensions = ['coc-pyright', 'coc-texlab']
 
 call plug#begin('~/.local/share/nvim/plugged')
   " ===========================================================================
@@ -43,6 +43,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   " auto-resize
   "Plug 'camspiers/animate.vim'
   Plug 'camspiers/lens.vim'
+  " highlight current line
+  Plug 'yamatsum/nvim-cursorline'
   " dracula theme
   Plug 'dracula/vim', { 'as': 'dracula' }
   " ===========================================================================

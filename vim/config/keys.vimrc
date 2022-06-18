@@ -22,6 +22,8 @@ nnoremap x "_x
 nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
+nnoremap dc dd
+vnoremap dc dd
 
 nnoremap <leader>d ""d
 nnoremap <leader>D ""D
@@ -173,3 +175,8 @@ if has_key(plugs, 'defx.nvim')
   endfunction
 endif
 
+if has_key(plugs, 'coc.nvim')
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gD <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+endif
