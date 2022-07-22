@@ -67,7 +67,7 @@ ${DOTPATH}/zsh/zsh.sh
 ln -sf ${DOTPATH}/themes/p10k/.p10k.zsh ~/.p10k.zsh
 
 # install vim configuration
-${DOTPATH}/vim/vim.sh
+${DOTPATH}/vim/install.sh
 
 
 # configure git

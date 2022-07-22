@@ -4,3 +4,6 @@
 [submodule "homebrew/Brewfile"]
 	path = homebrew/Brewfile
 	url = https://gist.github.com/5da30da02e0a46c21cd2003eb1f390af.git
+[submodule "vim/lua/nvchad"]
+	path = vim/lua/nvchad
+	url = https://github.com/NvChad/NvChad.git
