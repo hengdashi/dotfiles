@@ -13,9 +13,13 @@ local modules = {
   "core.utils"
 }
 
+local hooks = require "core.hooks"
+
 for _, m in ipairs(modules) do
   local ok, err = pcall(require, m)
   if not ok then
     error("Error loading " .. m .. "\n\n" .. err)
   end
 end
+
+hooks.run "ready"
