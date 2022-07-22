@@ -21,17 +21,23 @@ fi
 
 # create dirs
 [[ -d ~/.config/nvim ]] && rm -r ~/.config/nvim
-mkdir -p ~/.config/nvim/config
-mkdir -p ~/.local/share/nvim/plugged
-mkdir -p ~/.vim/files/info
 
 # link all neovim config
 if [[ "${CONFIG}" == "lua" ]]; then
-  ln -fs ${CWD}/lua/nvchad/init.lua ~/.config/lua/init.lua
+  mkdir -p ~/.config/nvim/lua/custom
+  # install nvchad configs
+  ln -fs ${CWD}/lua/nvchad/init.lua ~/.config/nvim/init.lua
   for conf in ${CWD}/lua/nvchad/lua/*; do
     ln -fs ${conf} ~/.config/nvim/lua/$(basename ${conf})
   done
+  # install custom configs
+  for conf in ${CWD}/lua/custom/*; do
+    ln -fs ${conf} ~/.config/nvim/lua/custom/$(basename ${conf})
+  done
 else
+  mkdir -p ~/.config/nvim/config
+  mkdir -p ~/.local/share/nvim/plugged
+  mkdir -p ~/.vim/files/info
   ln -fs ${CWD}/vimscript/init.vim ~/.config/nvim/init.vim
   for vimrc in ${CWD}/vimscript/config/*; do
     ln -fs ${vimrc} ~/.config/nvim/config/$(basename ${vimrc})
