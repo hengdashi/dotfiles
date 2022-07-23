@@ -9,19 +9,24 @@ M.ui = {
 
 M.options = {
   user = function()
-    require('custom.core.options')
+   require('custom.core.options')
   end,
 }
 
 M.mappings = require('custom.core.mappings')
 
 M.plugins = {
+  -- custom plugins installation
   user = require('custom.plugins'),
+  -- plugins config override
   override = {
-    ['NvChad/ui'] = require('custom.plugins.configs.ui').overrides,
-    ['kyazdani42/nvim-tree'] = require('custom.plugins.configs.nvimtree').overrides,
-    ['nvim-treesitter/nvim-treesitter'] = require('custom.plugins.configs.treesitter').overrides,
-    ['lukas-reineke/indent-blankline.nvim'] = require('custom.plugins.configs.indent_blankline').overrides,
+    ['goolord/alpha-nvim'] = require('custom.plugins.configs._alpha').options,
+    ['lukas-reineke/indent-blankline.nvim'] = require('custom.plugins.configs._indent_blankline').options,
+    ['kyazdani42/nvim-tree'] = require('custom.plugins.configs._nvimtree').options,
+    ['nvim-treesitter/nvim-treesitter'] = require('custom.plugins.configs._treesitter').options,
+    ['olimorris/persisted.nvim'] = require('custom.plugins.configs._persisted').options,
+    ['nvim-telescope/telescope.nvim'] = require('custom.plugins.configs._telescope').options,
+    ['NvChad/ui'] = require('custom.plugins.configs._ui').options,
   },
 }
 

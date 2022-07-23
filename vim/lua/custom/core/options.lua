@@ -41,7 +41,7 @@ opt.showmatch      = true  -- show matching brackets
 -- general display
 opt.title         = true        -- set window title
 opt.laststatus    = 2           -- always show statusline
-opt.showtabline   = 2           -- always show tabline
+-- opt.showtabline   = 2           -- always show tabline
 opt.signcolumn    = 'yes'       -- always show sign column
 opt.showmode      = false       -- not show current mode in command-line (shown by statusline)
 opt.showcmd       = true        -- show already typed keys when more are expected
@@ -84,13 +84,13 @@ opt.list = true
 
 -- utf-8
 opt.listchars = {
-  eol = '$',
-  tab = '▸-',
-  trail = '~',
-  extends = '❯',
-  precedes = '❮',
-  nbsp = '±',
-  space = '·'
+ eol = '',
+ tab = '',
+ trail = 'ﰣ',
+ extends = '❯',
+ precedes = '❮',
+ nbsp = '±',
+ space = '·',
 }
 -- ascii only
 -- opt.listchars = {
@@ -101,7 +101,6 @@ opt.listchars = {
 --   precedes = '<',
 --   nbsp = '-',
 -- }
-
 
 -- disable
 opt.wildignore = { '*.o', '*.a', '__pycache__' }  -- ignore object, lib, pycache

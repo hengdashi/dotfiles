@@ -1,6 +1,6 @@
 local M = {}
 
-M.overrides = {
+M.options = {
   git = {
     enable = true,
   },

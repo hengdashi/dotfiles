@@ -1,6 +1,6 @@
 local M = {}
 
-M.overrides = {
+M.options = {
   filetype_exclude = {
     'help',
     "terminal",

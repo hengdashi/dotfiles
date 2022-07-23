@@ -1,6 +1,6 @@
 local M = {}
 
-M.overrides = {
+M.options = {
   statusline = {
     separator_style = 'block',
   },

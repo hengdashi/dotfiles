@@ -9,6 +9,10 @@ local M = {}
 
 M.general = {
   n = {
+    -- go to  beginning and end
+    ['<C-b>'] = { '<ESC>^i', ' beginning of line' },
+    ['<C-e>'] = { '<End>', ' end of line' },
+
     -- Try to prevent bad habits like using the arrow keys for movement. This is
     -- not the only possible bad habit. For example, holding down the h/j/k/l keys
     -- for movement, rather than using more efficient movement commands, is also a
@@ -43,24 +47,61 @@ M.general = {
   },
 }
 
-
 M.comment = {
   -- toggle comment in both modes
   n = {
     ["<leader>c<leader>"] = {
       function()
-        require("Comment.api").toggle_current_linewise()
+        require('Comment.api').toggle_current_linewise()
       end,
+      '  toggle comment',
+    },
+    ['<leader>/'] = {},
+  },
+  v = {
+    ['<leader>c<leader>'] = {
+      '<ESC><cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>',
+      '  toggle comment',
+    },
+    ['<leader>/'] = {},
+  },
+}
 
-      "蘒  toggle comment",
+M.tabufline = {
+  n = {
+    -- new buffer
+    ['<S-b>'] = { '<cmd> enew <CR>', '  new buffer' },
+    ['<leader>q'] = {
+      function()
+        require('core.utils').close_buffer()
+      end,
+      '  close buffer',
+    },
+    ['<leader>x'] = {},
+  },
+}
+
+M.lspconfig = {
+  n = {
+    ['<leader>g'] = {
+      function()
+        vim.diagnostic.setloclist()
+      end,
+      '  diagnostic setloclist'
     },
   },
+}
 
-  v = {
-    ["<leader>c<leader>"] = {
-      "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
-      "蘒  toggle comment",
-    },
+M.telescope = {
+  n = {
+    -- find
+    ['<leader>ff'] = { '<cmd> Telescope find_files <CR>', '  find files' },
+
+    ['<leader>fp'] = { '<cmd> Telescope persisted <CR>', '  Find Project'},
+    ['<leader>fa'] = { '<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>', '  find all' },
+    ['<leader>fw'] = { '<cmd> Telescope live_grep <CR>', '  live grep' },
+    ['<leader>fb'] = { '<cmd> Telescope buffers <CR>', '  find buffers' },
+    ['<leader>fo'] = { '<cmd> Telescope oldfiles <CR>', '  find oldfiles' },
   },
 }
 
