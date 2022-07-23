@@ -18,7 +18,7 @@ CONFIG="$1"
 if [[ "${CONFIG}" == "lua" ]]; then
   git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
   # install custom configs
-  ln -fs ${CWD}/lua/custom/ ~/.config/nvim/
+  ln -fs ${CWD}/lua/custom/ ~/.config/nvim/lua
 else
   # install neovim dependencies
   pip install neovim

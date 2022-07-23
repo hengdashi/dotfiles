@@ -1,6 +1,4 @@
-#! /usr/bin/env lua
---
--- lua/utils.lua
+-- core/utils.lua
 -- Copyright (C) 2021 Hengda Shi <hengda.shi@cs.ucla.edu>
 --
 -- Distributed under terms of the MIT license.

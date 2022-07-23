@@ -1,6 +1,4 @@
-#! /usr/bin/env lua
---
--- lua/settings.lua
+-- core/options.lua
 -- Copyright (C) 2021 Hengda Shi <hengda.shi@cs.ucla.edu>
 --
 -- Distributed under terms of the MIT license.
@@ -8,6 +6,11 @@
 
 local opt = vim.opt
 local g = vim.g
+
+
+-- leader key
+g.mapleader = ' '
+g.maplocalleader = ','
 
 
 -- autosave
@@ -27,7 +30,7 @@ opt.shiftround  = true  -- >> indents to next multiple of 'shiftwidth'
 -- line rendering
 opt.wrap           = true  -- wrap line
 opt.linebreak      = true  -- enable linebreak
-opt.showbreak      = ↪     -- show linebreak symbol
+opt.showbreak      = '↪'   -- show linebreak symbol
 opt.number         = true  -- add line numbers
 opt.relativenumber = true  -- show relative line number
 opt.cursorline     = true  -- find current line quickly
@@ -39,7 +42,7 @@ opt.showmatch      = true  -- show matching brackets
 opt.title         = true        -- set window title
 opt.laststatus    = 2           -- always show statusline
 opt.showtabline   = 2           -- always show tabline
-opt.signcolumn    = "yes"       -- always show sign column
+opt.signcolumn    = 'yes'       -- always show sign column
 opt.showmode      = false       -- not show current mode in command-line (shown by statusline)
 opt.showcmd       = true        -- show already typed keys when more are expected
 opt.ttyfast       = true        -- faster redrawing
@@ -48,7 +51,7 @@ opt.splitbelow    = true        -- open new windows below
 opt.splitright    = true        -- open new windows on the right
 opt.termguicolors = true        -- make sure the gui is in colors
 opt.synmaxcol     = 800         -- only highlight the first 800 columns
-opt.display:append("lastline")  -- always try to display the paragraph's last line
+opt.display:append('lastline')  -- always try to display the paragraph's last line
 
 
 -- search
@@ -59,17 +62,15 @@ opt.smartcase  = true  -- smart case matching when searching
 
 
 -- typing experience
-opt.hidden = true  -- switch between buffers without having to save first
-opt.spell = true   -- set spelling on
-opt.mouse:append("a")                 -- allow mouse to scroll
-opt.whichwrap:append("<>hl")          -- allow h, l to other line at beginning and end of the line
-opt.clipboard:prepend("unnamedplus")  -- use system clipboard on macos and linux
+opt.hidden = true                     -- switch between buffers without having to save first
+opt.mouse:append('a')                 -- allow mouse to scroll
+opt.whichwrap:append('<>[]hl')        -- allow h, l to other line at beginning and end of the line
+opt.clipboard:prepend('unnamedplus')  -- use system clipboard on macos and linux
 
 
 -- sound
 opt.errorbells = false  -- disable sound bell
 opt.visualbell = true   -- enable visual bell
-opt.t_vb       = nil    -- disable bell variable
 
 
 -- timeout
@@ -81,58 +82,30 @@ opt.updatetime = 250  -- update async interval
 -- implicit characters
 opt.list = true
 
-if opt.encoding == "utf-8" then
-    opt.listchars = {
-        eol = '$',
-        tab = '▸-',
-        trail = '~',
-        extends = '❯',
-        precedes = '❮',
-        nbsp = '±',
-        space = '·'
-    }
-else
-    opt.listchars = {
-        eol = '$',
-        tab = '>-',
-        trail = '~',
-        extends = '>',
-        precedes = '<',
-        nbsp = '-',
-        space = '.'
-    }
-end
+-- utf-8
+opt.listchars = {
+  eol = '$',
+  tab = '▸-',
+  trail = '~',
+  extends = '❯',
+  precedes = '❮',
+  nbsp = '±',
+  space = '·'
+}
+-- ascii only
+-- opt.listchars = {
+--   eol = '$',
+--   tab = '>-',
+--   trail = '~',
+--   extends = '>',
+--   precedes = '<',
+--   nbsp = '-',
+-- }
 
 
 -- disable
 opt.wildignore = { '*.o', '*.a', '__pycache__' }  -- ignore object, lib, pycache
 
--- disable builtin vim plugins
-local disabled_built_ins = {
-    "netrw",
-    "netrwPlugin",
-    "netrwSettings",
-    "netrwFileHandlers",
-    "gzip",
-    "zip",
-    "zipPlugin",
-    "tar",
-    "tarPlugin",
-    "getscript",
-    "getscriptPlugin",
-    "vimball",
-    "vimballPlugin",
-    "2html_plugin",
-    "logipat",
-    "rrhelper",
-    "spellfile_plugin",
-    "matchit"
-}
-
-for _, plugin in pairs(disabled_built_ins) do
-    vim.g["loaded_" .. plugin] = 1
-end
-
 
 -- file extension specific tabbing
--- vim.cmd([[autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4]])
+vim.cmd([[autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4]])
