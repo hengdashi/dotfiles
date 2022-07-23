@@ -18,10 +18,10 @@ M.mappings = require('custom.core.mappings')
 M.plugins = {
   user = require('custom.plugins'),
   override = {
-    ['NvChad/ui'] = require('custom.plugins.ui').overrides,
-    ['kyazdani42/nvim-tree'] = require('custom.plugins.nvimtree').overrides,
-    ['nvim-treesitter/nvim-treesitter'] = require('custom.plugins.treesitter').overrides,
-    ['lukas-reineke/indent-blankline.nvim'] = require('custom.plugins.indent_blankline').overrides,
+    ['NvChad/ui'] = require('custom.plugins.configs.ui').overrides,
+    ['kyazdani42/nvim-tree'] = require('custom.plugins.configs.nvimtree').overrides,
+    ['nvim-treesitter/nvim-treesitter'] = require('custom.plugins.configs.treesitter').overrides,
+    ['lukas-reineke/indent-blankline.nvim'] = require('custom.plugins.configs.indent_blankline').overrides,
   },
 }
 
