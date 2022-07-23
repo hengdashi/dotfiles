@@ -16,9 +16,7 @@ M.options = {
 M.mappings = require('custom.core.mappings')
 
 M.plugins = {
-  user = {
-    ['goolord/alpha-nvim'] = require('custom.plugins.alpha').user,
-  },
+  user = require('custom.plugins'),
   override = {
     ['NvChad/ui'] = require('custom.plugins.ui').overrides,
     ['kyazdani42/nvim-tree'] = require('custom.plugins.nvimtree').overrides,

@@ -9,7 +9,6 @@ local M = {}
 
 M.general = {
   n = {
-    ['dd'] = { '[=[ "_dd ]=]', 'delete line without copy in normal mode' },
     -- Try to prevent bad habits like using the arrow keys for movement. This is
     -- not the only possible bad habit. For example, holding down the h/j/k/l keys
     -- for movement, rather than using more efficient movement commands, is also a
@@ -28,15 +27,13 @@ M.general = {
     ['k'] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
 
     -- move between tabs
-    ['<TAB>'] = { '<cmd> :BufferLineCycleNext <CR>', 'switch to next tab' },
-    ['<S-TAB>'] = { '<cmd> :BufferLineCyclePrev <CR>', 'switch to prev tab' },
+    -- ['<TAB>'] = { '<cmd> :BufferLineCycleNext <CR>', 'switch to next tab' },
+    -- ['<S-TAB>'] = { '<cmd> :BufferLineCyclePrev <CR>', 'switch to prev tab' },
 
     -- use ESC to turn off search highlight
     ['<Esc>'] = { '<cmd> :noh <CR>', 'turn off search highlight' },
   },
   v = {
-    ['dd'] = { '[=[ "_dd ]=]', 'delete line without copy in visual mode' },
-    -- ['x'] = { '[=[ "_x ]=]', 'cut line without copy in visual mode' },
   },
   i = {
     ['<Left>'] = { '<cmd> :echoe "Use h" <CR>', 'arrow key disabled' },
