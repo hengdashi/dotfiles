@@ -30,7 +30,6 @@ end
 
 M.options = {
   buttons = {
-    type = 'group',
     val = {
       button('<S-b>',   '  New File', ':enew <CR>'),
       button('SPC f p', '  Find Project', ':Telescope persisted <CR>'),
@@ -40,9 +39,6 @@ M.options = {
       button('SPC b m', '  Bookmarks  ', ':Telescope marks <CR>'),
       button('SPC t h', '  Themes  ', ':Telescope themes <CR>'),
       button('SPC e s', '  Settings', ':e $MYVIMRC | :cd %:p:h <CR>'),
-    },
-    opts = {
-      spacing = 1,
     },
   },
 }

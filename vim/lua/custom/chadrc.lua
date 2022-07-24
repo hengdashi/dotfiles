@@ -7,12 +7,6 @@ M.ui = {
   theme = 'onedark',
 }
 
-M.options = {
-  user = function()
-   require('custom.core.options')
-  end,
-}
-
 M.mappings = require('custom.core.mappings')
 
 M.plugins = {

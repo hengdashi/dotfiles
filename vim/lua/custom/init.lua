@@ -1,3 +1,6 @@
 -- example file i.e lua/custom/init.lua
 
--- load your globals, autocmds here or anything .__.
+-- you can even override default options here (core/options.lua)
+
+
+require('custom.core.options')
