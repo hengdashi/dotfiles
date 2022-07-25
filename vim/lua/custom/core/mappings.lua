@@ -8,6 +8,13 @@
 local M = {}
 
 M.general = {
+  -- modes
+  --   normal_mode = "n",
+  --   insert_mode = "i",
+  --   visual_mode = "v",
+  --   visual_block_mode = "x",
+  --   term_mode = "t",
+  --   command_mode = "c",
   n = {
     -- go to  beginning and end
     ['<C-b>'] = { '<ESC>^i', ' beginning of line' },
@@ -38,6 +45,13 @@ M.general = {
     ['<Esc>'] = { '<cmd> :noh <CR>', 'turn off search highlight' },
   },
   v = {
+    -- stay in indent mode
+    ['<'] = { '<gv', 'indent left' },
+    ['>'] = { '>gv', 'indent right' },
+    -- stop p from yanking replaced text
+    ['p'] = { '"_dP', 'paste text' }
+  },
+  x = {
   },
   i = {
     ['<Left>'] = { '<cmd> :echoe "Use h" <CR>', 'arrow key disabled' },

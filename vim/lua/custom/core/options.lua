@@ -29,6 +29,7 @@ opt.shiftround  = true  -- >> indents to next multiple of 'shiftwidth'
 
 -- line rendering
 opt.wrap           = true  -- wrap line
+opt.scrolloff      = 4     -- minimal number of screen lines to keep above and below the cursor
 opt.linebreak      = true  -- enable linebreak
 opt.showbreak      = '↪'   -- show linebreak symbol
 opt.number         = true  -- add line numbers
@@ -52,6 +53,7 @@ opt.splitright    = true        -- open new windows on the right
 opt.termguicolors = true        -- make sure the gui is in colors
 opt.synmaxcol     = 800         -- only highlight the first 800 columns
 opt.display:append('lastline')  -- always try to display the paragraph's last line
+opt.shortmess:append('c')       -- don't pass messages to |ins-completion-menu|.
 
 
 -- search
