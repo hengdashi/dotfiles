@@ -16,6 +16,7 @@ M.plugins = {
   override = {
     ['goolord/alpha-nvim'] = require('custom.plugins.configs._alpha').options,
     ['lukas-reineke/indent-blankline.nvim'] = require('custom.plugins.configs._indent_blankline').options,
+    ['williamboman/mason'] = require('custom.plugins.configs._mason').options,
     ['kyazdani42/nvim-tree'] = require('custom.plugins.configs._nvimtree').options,
     ['nvim-treesitter/nvim-treesitter'] = require('custom.plugins.configs._treesitter').options,
     ['olimorris/persisted.nvim'] = require('custom.plugins.configs._persisted').options,
