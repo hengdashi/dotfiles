@@ -18,6 +18,10 @@ return {
       require('neoscroll').setup()
     end,
   },
-  -- rainbow parentheses via treesitter
-  ['p00f/nvim-ts-rainbow'] = {},
+  ["neovim/nvim-lspconfig"] = {
+      config = function()
+        require('plugins.configs.lspconfig')
+        require('custom.plugins.configs._lspconfig')
+      end,
+  },
 }
