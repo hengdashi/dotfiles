@@ -4,7 +4,7 @@ local M = {}
 -- example of changing theme:
 
 M.ui = {
-  theme = "onedark",
+  theme = "chadracula",
 }
 
 M.mappings = require('custom.core.mappings')

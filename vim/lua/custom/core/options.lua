@@ -109,4 +109,9 @@ opt.wildignore = { '*.o', '*.a', '__pycache__' }  -- ignore object, lib, pycache
 
 
 -- file extension specific tabbing
-vim.cmd([[autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4]])
+-- local python_group = vim.api.nvim_create_augroup(
+--   'PythonOptions', { clear = true }
+-- )
+-- vim.api.nvim_create_autocmd(
+--   'Filetype python', { command = 'setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4', group=python_group }
+-- )
