@@ -18,10 +18,13 @@ return {
       require('neoscroll').setup()
     end,
   },
-  ["neovim/nvim-lspconfig"] = {
-      config = function()
-        require('plugins.configs.lspconfig')
-        require('custom.plugins.configs._lspconfig')
-      end,
+  ['neovim/nvim-lspconfig'] = {
+    config = function()
+      require('plugins.configs.lspconfig')
+      require('custom.plugins.configs._lspconfig')
+    end,
+  },
+  ['nvim-telescope/telescope-fzf-native.nvim'] = {
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
   },
 }

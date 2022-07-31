@@ -21,6 +21,7 @@ M.plugins = {
     ['nvim-treesitter/nvim-treesitter'] = require('custom.plugins.configs._treesitter').options,
     ['olimorris/persisted.nvim'] = require('custom.plugins.configs._persisted').options,
     ['nvim-telescope/telescope.nvim'] = require('custom.plugins.configs._telescope').options,
+    ['nvim-telescope/telescope-fzf-native.nvim'] = require('custom.plugins.configs._telescope_fzf_native').options,
     ['NvChad/ui'] = require('custom.plugins.configs._ui').options,
   },
 }

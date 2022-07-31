@@ -4,7 +4,7 @@ M.options = {
   defaults = {
     prompt_prefix = '   ',
   },
-  extensions_list = { 'persisted' },
+  extensions_list = { 'persisted', 'fzf' },
 }
 
 return M
