@@ -110,6 +110,7 @@ M.telescope = {
   n = {
     -- find
     ['<leader>ff'] = { '<cmd> Telescope find_files <CR>', '  find files' },
+    ['<leader>fs'] = { '<cmd> Telescope grep_string <CR>', '  find word' },
 
     ['<leader>fp'] = { '<cmd> Telescope persisted <CR>', '  Find Project'},
     ['<leader>fa'] = { '<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>', '  find all' },
