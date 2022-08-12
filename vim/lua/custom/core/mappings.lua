@@ -7,6 +7,16 @@
 
 local M = {}
 
+M.disabled = {
+  n = {
+    ['<leader>/'] = '',
+    ['<leader>x'] = '',
+  },
+  v = {
+    ['<leader>/'] = '',
+  },
+}
+
 M.general = {
   -- modes
   --   normal_mode = "n",
@@ -70,14 +80,12 @@ M.comment = {
       end,
       '  toggle comment',
     },
-    ['<leader>/'] = {},
   },
   v = {
     ['<leader>c<leader>'] = {
       '<ESC><cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>',
       '  toggle comment',
     },
-    ['<leader>/'] = {},
   },
 }
 
@@ -91,7 +99,6 @@ M.tabufline = {
       end,
       '  close buffer',
     },
-    ['<leader>x'] = {},
   },
 }
 

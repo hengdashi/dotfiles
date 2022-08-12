@@ -1,4 +1,7 @@
 return {
+  ['folke/which-key.nvim'] = {
+    disable = false,
+  },
   -- dashboard
   ['goolord/alpha-nvim'] = {
     after = 'base46',
@@ -25,6 +28,6 @@ return {
     end,
   },
   ['nvim-telescope/telescope-fzf-native.nvim'] = {
-    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+    run = 'make',
   },
 }
