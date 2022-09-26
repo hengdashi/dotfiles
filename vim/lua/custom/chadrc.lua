@@ -35,7 +35,7 @@ M.plugins = {
       require('custom.plugins.configs._lspconfig')
     end,
   },
-  ['kyazdani42/nvim-tree'] = {
+  ['kyazdani42/nvim-tree.lua'] = {
     override_options = require('custom.plugins.configs._nvimtree').options,
   },
   ['nvim-treesitter/nvim-treesitter'] = {
