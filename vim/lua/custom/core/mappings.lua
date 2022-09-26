@@ -76,14 +76,14 @@ M.comment = {
   n = {
     ["<leader>c<leader>"] = {
       function()
-        require('Comment.api').toggle_current_linewise()
+        require('Comment.api').toggle.linewise.current()
       end,
       '  toggle comment',
     },
   },
   v = {
     ['<leader>c<leader>'] = {
-      '<ESC><cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>',
+      '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
       '  toggle comment',
     },
   },
@@ -92,10 +92,10 @@ M.comment = {
 M.tabufline = {
   n = {
     -- new buffer
-    ['<S-b>'] = { '<cmd> enew <CR>', '  new buffer' },
+    ['<leader>b'] = { '<cmd> enew <CR>', '  new buffer' },
     ['<leader>q'] = {
       function()
-        require('core.utils').close_buffer()
+        require("nvchad_ui.tabufline").close_buffer()
       end,
       '  close buffer',
     },

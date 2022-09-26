@@ -10,19 +10,57 @@ M.ui = {
 M.mappings = require('custom.core.mappings')
 
 M.plugins = {
-  -- custom plugins installation
-  user = require('custom.plugins'),
-  -- plugins config override
-  override = {
-    ['goolord/alpha-nvim'] = require('custom.plugins.configs._alpha').options,
-    ['lukas-reineke/indent-blankline.nvim'] = require('custom.plugins.configs._indent_blankline').options,
-    ['williamboman/mason.nvim'] = require('custom.plugins.configs._mason').options,
-    ['kyazdani42/nvim-tree'] = require('custom.plugins.configs._nvimtree').options,
-    ['nvim-treesitter/nvim-treesitter'] = require('custom.plugins.configs._treesitter').options,
-    ['olimorris/persisted.nvim'] = require('custom.plugins.configs._persisted').options,
-    ['nvim-telescope/telescope.nvim'] = require('custom.plugins.configs._telescope').options,
-    ['nvim-telescope/telescope-fzf-native.nvim'] = require('custom.plugins.configs._telescope_fzf_native').options,
-    ['NvChad/ui'] = require('custom.plugins.configs._ui').options,
+  -- dashboard
+  ['goolord/alpha-nvim'] = {
+    after = 'base46',
+    require = { 'kyazdani42/nvim-web-devicons' },
+    disable = false,
+    override_options = require('custom.plugins.configs._alpha').options,
+  },
+  ['lukas-reineke/indent-blankline.nvim'] = {
+    override_options = require('custom.plugins.configs._indent_blankline').options,
+  },
+  ['williamboman/mason.nvim'] = {
+    override_options = require('custom.plugins.configs._mason').options,
+  },
+  -- smooth scroll
+  ['karb94/neoscroll.nvim'] = {
+    config = function()
+      require('neoscroll').setup()
+    end,
+  },
+  ['neovim/nvim-lspconfig'] = {
+    config = function()
+      require('plugins.configs.lspconfig')
+      require('custom.plugins.configs._lspconfig')
+    end,
+  },
+  ['kyazdani42/nvim-tree'] = {
+    override_options = require('custom.plugins.configs._nvimtree').options,
+  },
+  ['nvim-treesitter/nvim-treesitter'] = {
+    override_options = require('custom.plugins.configs._treesitter').options,
+  },
+  -- session management
+  ['olimorris/persisted.nvim'] = {
+    -- module = "persisted", -- For lazy loading
+    config = function()
+      require('persisted').setup()
+    end,
+    override_options = require('custom.plugins.configs._persisted').options,
+  },
+  ['nvim-telescope/telescope.nvim'] = {
+    override_options = require('custom.plugins.configs._telescope').options,
+  },
+  ['nvim-telescope/telescope-fzf-native.nvim'] = {
+    run = 'make',
+    override_options = require('custom.plugins.configs._telescope_fzf_native').options,
+  },
+  ['folke/which-key.nvim'] = {
+    disable = false,
+  },
+  ['NvChad/ui'] = {
+    override_options = require('custom.plugins.configs._ui').options,
   },
 }
 
