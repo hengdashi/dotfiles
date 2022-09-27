@@ -2,13 +2,21 @@ local M = {}
 
 M.options = {
   ensure_installed = {
-    'vim',
-    'toml',
-    'markdown',
-    'c',
     'bash',
+    'c',
+    'cpp',
+    'comment',
+    'cuda',
+    'dockerfile',
+    'go',
+    'latex',
     'lua',
+    'make',
+    'markdown',
     'python',
+    'toml',
+    'yaml',
+    'vim',
   },
 }
 
