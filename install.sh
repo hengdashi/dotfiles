@@ -32,7 +32,7 @@ if [[ ${UNAME} == "Darwin" ]]; then
   else
     # install minimum amount of packages
     brew install "bat" "git" "git-lfs" "grep" "htop" "neovim" "ripgrep" "tmux" "trash-cli" "wget"
-    brew install --cask "1password" "alfred" "hammerspoon" "iterm2" "karabiner-elements" "miniconda" "slack" "the-unarchiver" "visual-studio-code" "zoom"
+    brew install --cask "1password" "alfred" "hammerspoon" "iterm2" "karabiner-elements" "micromamba" "slack" "the-unarchiver" "visual-studio-code" "zoom"
   fi
 
 # install applications for linux
@@ -42,22 +42,9 @@ elif [[ ${UNAME} == "Linux" ]]; then
   ln -fs ${DOTPATH}/upgrade/linux/linux-upgrade.sh ~/linux-upgrade.sh
 
   # install miniconda
-  if [[ ! -d ~/miniconda ]]; then
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
-    bash ~/miniconda.sh -b -p $HOME/miniconda
-    source ~/miniconda/bin/activate
-    rm ~/miniconda.sh
+  if [[ ! -d ~/micromamba ]]; then
+    curl micro.mamba.pm/install.sh | zsh
   fi
-fi
-
-if command -v conda &> /dev/null; then
-  conda init $(basename ${SHELL})
-  conda install -y pip
-fi
-
-# init miniconda and install pip
-if ! command -v conda &> /dev/null; then
-  pip install neovim neovim-remote yapf jedi pylint pynvim
 fi
 
 # install zsh

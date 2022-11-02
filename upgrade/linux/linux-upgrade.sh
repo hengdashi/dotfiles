@@ -26,13 +26,7 @@ sudo do-release-upgrade
 
 echo "################################"
 
-echo "Upgrade conda base Packages"
-conda update -y conda
+echo "Upgrade micromamba base Packages"
+micromamba update
 
 echo "################################"
-
-echo "Upgrade pip Packages"
-pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install
-
-echo "################################"
-
