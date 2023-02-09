@@ -13,7 +13,7 @@ M.plugins = {
   -- dashboard
   ['goolord/alpha-nvim'] = {
     after = 'base46',
-    require = { 'kyazdani42/nvim-web-devicons' },
+    require = { 'nvim-tree/nvim-web-devicons' },
     disable = false,
     override_options = require('custom.plugins.configs._alpha').options,
   },
@@ -35,7 +35,7 @@ M.plugins = {
       require('custom.plugins.configs._lspconfig')
     end,
   },
-  ['kyazdani42/nvim-tree.lua'] = {
+  ['nvim-tree/nvim-tree.lua'] = {
     override_options = require('custom.plugins.configs._nvimtree').options,
   },
   ['nvim-treesitter/nvim-treesitter'] = {
