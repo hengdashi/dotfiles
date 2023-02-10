@@ -9,16 +9,21 @@
 UNAME=$(uname)
 CWD=$(cd $(dirname "$0") && pwd -P)
 CONFIG="$1"
+DISTRO="$2"
 
 
 # create dirs
-[[ -d ~/.config/nvim ]] && rm -r ~/.config/nvim
+[[ -d ~/.config/nvim ]] && rm -r ~/.cache/nvim ~/.local/share/nvim ~/.config/nvim
 
 # link all neovim config
 if [[ "${CONFIG}" == "lua" ]]; then
-  git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-  # install custom configs
-  ln -fs ${CWD}/lua/custom/ ~/.config/nvim/lua
+  if [[ "${DISTRO}" == "nvchad" ]]; then
+    git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+    # install custom configs
+    ln -fs ${CWD}/nvchad/lua/custom/ ~/.config/nvim/lua
+  else
+    ln -fs ${CWD}/lazyvim/lua/custom/ ~/.config/nvim/lua
+  fi
 else
   # install neovim dependencies
   pip install neovim
