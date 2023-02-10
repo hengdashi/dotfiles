@@ -22,7 +22,9 @@ if [[ "${CONFIG}" == "lua" ]]; then
     # install custom configs
     ln -fs ${CWD}/nvchad/lua/custom/ ~/.config/nvim/lua
   else
-    ln -fs ${CWD}/lazyvim/lua/custom/ ~/.config/nvim/lua
+    mkdir -p ~/.config/nvim/
+    ln -fs ${CWD}/lazyvim/init.lua ~/.config/nvim/init.lua
+    ln -fs ${CWD}/lazyvim/lua ~/.config/nvim/
   fi
 else
   # install neovim dependencies
