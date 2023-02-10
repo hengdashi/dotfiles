@@ -1,0 +1,64 @@
+# only search files supported in `rg --type-list`
+--type
+all
+
+# exclude built-in types
+--type-not
+jupyter
+
+--type-not
+csv
+
+--type-not
+gradle
+
+--type-not
+html
+
+--type-not
+css
+
+--type-not
+sql
+
+--type-not
+pdf
+
+# exclude custom types
+--type-add
+terraform:*.{tf,tfvars}*
+
+--type-add
+pictures:*.{jpg,jpeg,png,svg,gif}*
+
+--type-add
+zr:*.zr*
+
+--type-add
+poetrylock:poetry.lock
+
+--type-add
+noextension:*^.*
+
+--type-not
+terraform
+
+--type-not
+pictures
+
+--type-not
+zr
+
+--type-not
+poetrylock
+
+# exclude git objects
+--glob
+!git/*
+
+# exclude executables
+--glob
+!bin/*
+
+# Because who cares about case!?
+--smart-case
