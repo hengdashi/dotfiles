@@ -10,6 +10,19 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
+local Util = require("lazyvim.util")
+
+local function map(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  -- do not create the keymap if a lazy keys handler exists
+  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
+end
+
 --------------------------------------
 -- normal mode start                --
 --------------------------------------
@@ -42,6 +55,7 @@ if Util.has('bufferline.nvim') then
 else
   map('n', '<TAB>', '<cmd> bprevious <CR>', { desc = 'switch to next tab' })
   map('n', '<S-TAB>', '<cmd> bnext <CR>', { desc = 'switch to prev tab' })
+end
 
 
 -- use ESC to turn off search highlight

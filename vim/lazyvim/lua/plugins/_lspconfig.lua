@@ -1,10 +1,10 @@
 return {
-  {
-    'neovim/nvim-lspconfig',
-    opts = {
-      servers = {
-        pyright = {},
-      },
+    {
+        'neovim/nvim-lspconfig',
+        opts = {
+            servers = {
+                pyright = {},
+            },
+        },
     },
-  },
 }
