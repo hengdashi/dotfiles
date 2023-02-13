@@ -40,8 +40,6 @@ return {
               dashboard.button('<leader> f o', '  Recent File  ', ':Telescope oldfiles <CR>'),
               dashboard.button('<leader> f w', '  Find Word  ', ':Telescope live_grep <CR>'),
               dashboard.button('<leader> b m', '  Bookmarks  ', ':Telescope marks <CR>'),
-              dashboard.button('<leader> t h', '  Themes  ', ':Telescope themes <CR>'),
-              dashboard.button('<leader> e s', '  Settings', ':e $MYVIMRC | :cd %:p:h <CR>'),
           }
         end
     },
