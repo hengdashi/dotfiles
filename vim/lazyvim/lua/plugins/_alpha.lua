@@ -33,6 +33,21 @@ return {
     {
         'goolord/alpha-nvim',
         opts = function()
+          local logo = [[
+                  ▄▄
+                ▄▄▄▀
+                ▄▄▄
+                ▄▄▄▄
+              ▄▄▄▄ ▄▄▄  ▄▄▄▄
+            ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+            ▀▄▄▄▄▄▄▄▄▄▄▀▀ ▀▄▄
+              ▄▄▄▄ ▄▄▄▄▄▄▄▄▄
+              ▄ ▄▄▄▄▀▀▄▄▄▄▄▀
+            ▄▄▄▄▄▄▄▄▄▄▄▀
+          ▄▄▄▄ ▄▄▄▄▄▄▄▀
+          ▄▄▄▄▄▄▄▄▄▄▄▄▄
+          ]]
+          dashboard.section.header.val = vim.split(logo, "\n")
           dashboard.section.buttons.val = {
               dashboard.button('<S-b>', '  New File', ':enew <CR>'),
               dashboard.button('<leader> f p', '  Find Project', ':Telescope persisted <CR>'),
