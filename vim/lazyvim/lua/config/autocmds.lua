@@ -15,27 +15,27 @@
 local group = vim.api.nvim_create_augroup("PersistedHooks", {})
 
 vim.api.nvim_create_autocmd({ "User" }, {
-    pattern = "PersistedTelescopeLoadPre",
-    group = group,
-    callback = function()
-      -- Close and delete all open buffers
-      vim.api.nvim_input("<ESC>:%bd<CR>")
-    end,
+  pattern = "PersistedTelescopeLoadPre",
+  group = group,
+  callback = function()
+    -- Close and delete all open buffers
+    vim.api.nvim_input("<ESC>:%bd<CR>")
+  end,
 })
 
 vim.api.nvim_create_autocmd({ "User" }, {
-    pattern = "PersistedTelescopeLoadPost",
-    group = group,
-    callback = function(session)
-      local status_ok, notify = pcall(require, 'notify')
-      if status_ok then
-        notify(
-            'Loaded session' .. session.name,
-            vim.log.levels.INFO,
-            { title = 'Persisted Session' }
-        )
-      else
-        print("Loaded session " .. session.name)
-      end
-    end,
+  pattern = "PersistedTelescopeLoadPost",
+  group = group,
+  callback = function(session)
+    local status_ok, notify = pcall(require, 'notify')
+    if status_ok then
+      notify(
+        'Loaded session' .. session.data.branch,
+        vim.log.levels.INFO,
+        { title = 'Persisted Session' }
+      )
+    else
+      print("Loaded session " .. session.data.branch)
+    end
+  end,
 })
