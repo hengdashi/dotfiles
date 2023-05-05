@@ -4,13 +4,13 @@ local function button(sc, txt, keybind)
   local sc_ = sc:gsub('%s', ''):gsub('SPC', '<leader>')
 
   local opts = {
-      position = 'center',
-      text = txt,
-      shortcut = sc,
-      cursor = 5,
-      width = 36,
-      align_shortcut = 'right',
-      hl = 'AlphaButtons',
+    position = 'center',
+    text = txt,
+    shortcut = sc,
+    cursor = 5,
+    width = 36,
+    align_shortcut = 'right',
+    hl = 'AlphaButtons',
   }
 
   if keybind then
@@ -18,22 +18,22 @@ local function button(sc, txt, keybind)
   end
 
   return {
-      type = 'button',
-      val = txt,
-      on_press = function()
-        local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
-        vim.api.nvim_feedkeys(key, 'normal', false)
-      end,
-      opts = opts,
+    type = 'button',
+    val = txt,
+    on_press = function()
+      local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
+      vim.api.nvim_feedkeys(key, 'normal', false)
+    end,
+    opts = opts,
   }
 end
 
 
 return {
-    {
-        'goolord/alpha-nvim',
-        opts = function()
-          local logo = [[
+  {
+    'goolord/alpha-nvim',
+    opts = function()
+      local logo = [[
                   ▄▄
                 ▄▄▄▀
                 ▄▄▄
@@ -47,15 +47,15 @@ return {
           ▄▄▄▄ ▄▄▄▄▄▄▄▀
           ▄▄▄▄▄▄▄▄▄▄▄▄▄
           ]]
-          dashboard.section.header.val = vim.split(logo, "\n")
-          dashboard.section.buttons.val = {
-              dashboard.button('<S-b>', '  New File', ':enew <CR>'),
-              dashboard.button('<leader> f p', '  Find Project', ':Telescope persisted <CR>'),
-              dashboard.button('<leader> f f', '  Find File  ', ':Telescope find_files <CR>'),
-              dashboard.button('<leader> f o', '  Recent File  ', ':Telescope oldfiles <CR>'),
-              dashboard.button('<leader> f w', '  Find Word  ', ':Telescope live_grep <CR>'),
-              dashboard.button('<leader> b m', '  Bookmarks  ', ':Telescope marks <CR>'),
-          }
-        end
-    },
+      dashboard.section.header.val = vim.split(logo, "\n")
+      dashboard.section.buttons.val = {
+        dashboard.button('<S-b>', '󰎔  New File', ':enew <CR>'),
+        dashboard.button('<leader> f p', '  Find Project', ':Telescope persisted <CR>'),
+        dashboard.button('<leader> f f', '󰥨  Find File', ':Telescope find_files <CR>'),
+        dashboard.button('<leader> f o', '  Recent File', ':Telescope oldfiles <CR>'),
+        dashboard.button('<leader> f w', '  Find Word', ':Telescope live_grep <CR>'),
+        dashboard.button('<leader> b m', '󰸕  Bookmarks', ':Telescope marks <CR>'),
+      }
+    end
+  },
 }
