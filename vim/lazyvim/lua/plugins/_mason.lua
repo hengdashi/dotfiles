@@ -1,9 +1,9 @@
 return {
-    'williamboman/mason.nvim',
-    opts = {
-        ensure_installed = {
-            -- 'lua-language-server',
-            -- 'pyright',
-        },
+  'williamboman/mason.nvim',
+  opts = {
+    ensure_installed = {
+      -- 'lua-language-server',
+      -- 'pyright',
     },
+  },
 }
