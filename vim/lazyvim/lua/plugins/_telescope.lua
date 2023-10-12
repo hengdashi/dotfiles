@@ -8,8 +8,7 @@ return {
     end,
   },
   keys = {
-    { '<leader>ff', '<cmd> Telescope find_files <CR>', { desc = '  find files' } },
-    { '<leader>fp', '<cmd> Telescope persisted <CR>',  { desc = '  Find Project' } },
+    { '<leader>fp', '<cmd> Telescope persisted <CR>', desc = 'Find Projects' },
   },
   opts = {
     defaults = {
