@@ -1,5 +1,5 @@
 return {
-  'glepnir/dashboard-nvim',
+  "nvimdev/dashboard-nvim",
   opts = {
     config = {
       center = {
@@ -9,7 +9,7 @@ return {
         { action = "Telescope live_grep", desc = " Live Grep", icon = "  ", key = "g" },
         { action = "Telescope oldfiles", desc = " Recent File", icon = "  ", key = "r" },
         { action = "Telescope marks", desc = " Bookmarks", icon = "󰸕  ", key = "m" },
-      }
-    }
-  }
+      },
+    },
+  },
 }
