@@ -32,7 +32,7 @@ if [[ ${UNAME} == "Darwin" ]]; then
   else
     # install minimum amount of packages
     brew install "bat" "git" "git-lfs" "grep" "htop" "neovim" "ripgrep" "tmux" "trash-cli" "wget"
-    brew install --cask "1password" "alfred" "hammerspoon" "iterm2" "karabiner-elements" "micromamba" "slack" "the-unarchiver" "visual-studio-code" "zoom"
+    brew install --cask "1password" "hammerspoon" "iterm2" "karabiner-elements" "micromamba" "the-unarchiver" "visual-studio-code"
   fi
 
 # install applications for linux
@@ -56,7 +56,6 @@ ln -sf ${DOTPATH}/themes/p10k/.p10k.zsh ~/.p10k.zsh
 # install vim configuration
 ${DOTPATH}/vim/install.sh
 
-
 # configure git
 git config --global user.name "Hengda Shi"
 if [[ "${COMMAND}" == "home" ]]; then
@@ -70,31 +69,25 @@ git config --global core.editor "vim"
 # macOS configuration
 if [[ ${UNAME} == "Darwin" ]]; then
 
-  if [[ "${COMMAND}" == "home" ]]; then
-
-    # configure latexmk
-    [[ ! -d ~/.config/latexmk ]] && mkdir ~/.config/latexmk
-    ln -fs ${DOTPATH}/latexmk/latexmkrc ~/.config/latexmk/latexmkrc
-
-    # configure zathura
-    [[ ! -d ~/.config/zathura ]] && mkdir ~/.config/zathura
-    ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
-
-  else
-
-    # configure hammerspoon
-    if [[ ! -d ~/.hammerspoon ]]; then
-      mkdir -p ~/.hammerspoon/
-    fi
-    ln -fs ${DOTPATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
-
-    # configure karabiner
-    if [[ ! -d ~/.config/karabiner ]]; then
-      mkdir -p ~/.config/karabiner/assets/complex_modifications/
-    fi
-    ln -fs ${DOTPATH}/karabiner/custom-config.json ~/.config/karabiner/assets/complex_modifications/custom-settings.json
-
+  # configure hammerspoon
+  if [[ ! -d ~/.hammerspoon ]]; then
+    mkdir -p ~/.hammerspoon/
   fi
+  ln -fs ${DOTPATH}/hammerspoon/init.lua ~/.hammerspoon/init.lua
+
+  # configure karabiner
+  if [[ ! -d ~/.config/karabiner ]]; then
+    mkdir -p ~/.config/karabiner/assets/complex_modifications/
+  fi
+  ln -fs ${DOTPATH}/karabiner/custom-config.json ~/.config/karabiner/assets/complex_modifications/custom-settings.json
+
+  # configure latexmk
+  [[ ! -d ~/.config/latexmk ]] && mkdir ~/.config/latexmk
+  ln -fs ${DOTPATH}/latexmk/latexmkrc ~/.config/latexmk/latexmkrc
+
+  # configure zathura
+  [[ ! -d ~/.config/zathura ]] && mkdir ~/.config/zathura
+  ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
 
 else
 
