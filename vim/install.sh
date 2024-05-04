@@ -13,7 +13,7 @@ DISTRO="$2"
 
 
 # create dirs
-[[ -d ~/.config/nvim ]] && rm -r ~/.cache/nvim ~/.local/share/nvim ~/.config/nvim
+[[ -d ~/.config/nvim ]] && rm -rf ~/.cache/nvim ~/.local/share/nvim ~/.config/nvim
 
 # link all neovim config
 if [[ "${CONFIG}" == "lua" ]]; then
