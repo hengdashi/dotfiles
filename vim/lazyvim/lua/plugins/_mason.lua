@@ -12,7 +12,6 @@ return {
       "buf",
       "ruff",
       -- formatter
-      "black",
       "stylua",
     },
   },
