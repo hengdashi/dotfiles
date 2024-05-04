@@ -1,5 +1,8 @@
 SECONDS=0
 
+# homebrew setup
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -74,19 +77,16 @@ export EDITOR="/usr/local/bin/nvim"
 # set ripgrep config
 export RIPGREP_CONFIG_PATH="/Users/hengdas/.ripgreprc"
 
+eval "$(micromamba shell hook --shell=zsh)"
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE="/usr/local/opt/micromamba/bin/micromamba";
-export MAMBA_ROOT_PREFIX="/Users/hengdas/micromamba";
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+export MAMBA_EXE='/opt/homebrew/opt/micromamba/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/Users/hengdas/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
 else
-    if [ -f "/Users/hengdas/micromamba/etc/profile.d/micromamba.sh" ]; then
-        . "/Users/hengdas/micromamba/etc/profile.d/micromamba.sh"
-    else
-        export  PATH="/Users/hengdas/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
-    fi
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
@@ -101,7 +101,7 @@ alias mmls="micromamba env list"
 mma
 # install base python if not existed
 if ! command -v python &> /dev/null; then
-  mm install python -y
+  mm install python -y -c conda-forge
 fi
 
 eval $(thefuck --alias)
