@@ -2,7 +2,7 @@
 
 # mac-upgrade.sh
 
-DOTPATH=$(cd $(dirname $(readlink "$0"))/../.. && pwd -P)
+DOTPATH=$(cd $(dirname $(readlink "$0"))/../../.. && pwd -P)
 BREWFILEPATH=${DOTPATH}/homebrew/home/Brewfile
 
 echo "################################"
