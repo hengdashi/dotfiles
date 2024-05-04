@@ -68,12 +68,12 @@ export STARTERVIEW=${MONOREPO}
 # set zamu alias
 alias zamu="$STARTERVIEW/bin/laptop/macos/zamu.scpt"
 # set path
-export PATH="$STARTERVIEW/common/py/bin:$STARTERVIEW/bin:/Users/hengdas/.local/bin:/Users/hengdas/go/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$STARTERVIEW/common/py/bin:$STARTERVIEW/bin:/Users/hengdas/.local/bin:/Users/hengdas/go/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 # set python path
 export PYTHONPATH="$STARTERVIEW:$PYTHONPATH"
 # set editor
-export VISUAL="/usr/local/bin/nvim"
-export EDITOR="/usr/local/bin/nvim"
+export VISUAL="/opt/homebrew/bin/nvim"
+export EDITOR="/opt/homebrew/bin/nvim"
 # set ripgrep config
 export RIPGREP_CONFIG_PATH="/Users/hengdas/.ripgreprc"
 
