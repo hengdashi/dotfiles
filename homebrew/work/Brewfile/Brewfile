@@ -1,10 +1,7 @@
 tap "bufbuild/buf"
 tap "buo/cask-upgrade"
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "jabley/wrk2"
 # Official Amazon AWS command-line interface
 brew "awscli"
@@ -54,8 +51,6 @@ brew "graphviz"
 brew "grep"
 # Improved top (interactive process viewer)
 brew "htop"
-# Toolkit for embedding hypervisor capabilities in your application
-brew "hyperkit"
 # LLVM's OpenMP runtime library
 brew "libomp", link: true
 # Tools and libraries to manipulate images in many formats
@@ -98,10 +93,6 @@ brew "zsh"
 brew "zsh-completions"
 # The best way of working with Protocol Buffers.
 brew "bufbuild/buf/buf"
-# HTTP benchmarking tool
-brew "jabley/wrk2/wrk2", args: ["HEAD"]
-# Application launcher and productivity software
-cask "alfred"
 # Display management tool
 cask "betterdisplay"
 # Free app that makes your Internet safer
