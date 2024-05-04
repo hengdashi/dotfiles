@@ -93,8 +93,6 @@ brew "zsh"
 brew "zsh-completions"
 # The best way of working with Protocol Buffers.
 brew "bufbuild/buf/buf"
-# Display management tool
-cask "betterdisplay"
 # Free app that makes your Internet safer
 cask "cloudflare-warp"
 # Developer targeted fonts with a high number of glyphs
