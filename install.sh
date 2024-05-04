@@ -13,9 +13,9 @@ DOTPATH=$(cd $(dirname "$0") && pwd -P)
 echo "Welcome! Please select an installation environment preset to proceed."
 select env in "home" "work" "minimal"; do
     case $env in
-        home ) $INSTALLENV=$env; break;;
-        work ) $INSTALLENV=$env; break;;
-        minimal ) exit;;
+        "home" ) INSTALLENV=$env; break;;
+        "work" ) INSTALLENV=$env; break;;
+        "minimal" ) exit;;
     esac
 done
 
@@ -69,7 +69,7 @@ ${DOTPATH}/zsh/zsh.sh
 ln -sf ${DOTPATH}/themes/p10k/.p10k.zsh ~/.p10k.zsh
 
 # install vim configuration
-${DOTPATH}/vim/install.sh
+${DOTPATH}/vim/install.sh lua lazyvim
 
 # configure git
 git config --global user.name "Hengda Shi"
