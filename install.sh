@@ -9,8 +9,18 @@
 # os initialization script (macos->Darwin, linux->Linux)
 UNAME=$(uname)
 DOTPATH=$(cd $(dirname "$0") && pwd -P)
-COMMAND="$1"
-EMAIL="$2"
+
+echo "Welcome! Please select an installation environment preset to proceed."
+select env in "home" "work" "minimal"; do
+    case $env in
+        home ) $INSTALLENV=$env; break;;
+        work ) $INSTALLENV=$env; break;;
+        minimal ) exit;;
+    esac
+done
+
+echo "Please enter your email address for git purpose."
+read EMAIL
 
 
 # install applications for macos
@@ -24,12 +34,17 @@ if [[ ${UNAME} == "Darwin" ]]; then
   fi
 
 
-  if [[ "${COMMAND}" == "home" ]]; then
-    cd ${DOTPATH}/homebrew/Brewfile
+  if [[ "${INSTALLENV}" == "home" ]]; then
+    cd ${DOTPATH}/homebrew/home/Brewfile
     brew bundle
     cd ${DOTPATH}
-    ln -fs ${DOTPATH}/upgrade/macos/mac-upgrade.sh ~/mac-upgrade.sh
-  else
+    ln -fs ${DOTPATH}/upgrade/macos/home/mac-upgrade.sh ~/mac-upgrade.sh
+  elif [[ "${INSTALLENV}" == "work" ]]; then
+    cd ${DOTPATH}/homebrew/work/Brewfile
+    brew bundle
+    cd ${DOTPATH}
+    ln -fs ${DOTPATH}/upgrade/macos/work/mac-upgrade.sh ~/mac-upgrade.sh
+  elif [[ "${INSTALLENV}" == "minimal" ]]; then
     # install minimum amount of packages
     brew install "bat" "git" "git-lfs" "grep" "htop" "neovim" "ripgrep" "tmux" "trash-cli" "wget"
     brew install --cask "1password" "hammerspoon" "iterm2" "karabiner-elements" "micromamba" "the-unarchiver" "visual-studio-code"
@@ -41,7 +56,7 @@ elif [[ ${UNAME} == "Linux" ]]; then
 
   ln -fs ${DOTPATH}/upgrade/linux/linux-upgrade.sh ~/linux-upgrade.sh
 
-  # install miniconda
+  # install micromamba
   if [[ ! -d ~/micromamba ]]; then
     curl micro.mamba.pm/install.sh | zsh
   fi
@@ -58,17 +73,17 @@ ${DOTPATH}/vim/install.sh
 
 # configure git
 git config --global user.name "Hengda Shi"
-if [[ "${COMMAND}" == "home" ]]; then
+if [[ "${INSTALLENV}" == "home" ]]; then
   git config --global user.email "hengda.shi@engineering.ucla.edu"
-elif [ $# -lt 2 ]; then
+elif [[ -n ${EMAIL} ]]; then
   git config --global user.email "${EMAIL}"
 fi
+
 git config --global core.editor "vim"
 
 
 # macOS configuration
 if [[ ${UNAME} == "Darwin" ]]; then
-
   # configure hammerspoon
   if [[ ! -d ~/.hammerspoon ]]; then
     mkdir -p ~/.hammerspoon/
@@ -88,20 +103,14 @@ if [[ ${UNAME} == "Darwin" ]]; then
   # configure zathura
   [[ ! -d ~/.config/zathura ]] && mkdir ~/.config/zathura
   ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
-
 else
-
-  if [[ "${COMMAND}" == "home" ]]; then
-
+  if [[ "${INSTALLENV}" == "home" ]]; then
     # configure alacritty
     [[ ! -d ~/.config/alacritty ]] && mkdir ~/.config/alacritty
     ln -fs ${DOTPATH}/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-
   fi
-
 fi
 
 
 # configure tmux
 [[ ! -e ~/.tmux.conf ]] && ln -fs ${DOTPATH}/tmux/.tmux.conf ~/.tmux.conf
-

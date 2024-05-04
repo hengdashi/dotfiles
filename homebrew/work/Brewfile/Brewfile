@@ -1,0 +1,175 @@
+tap "bufbuild/buf"
+tap "buo/cask-upgrade"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-drivers"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "jabley/wrk2"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Core application library for C
+brew "glib", link: false
+# Cross-platform make
+brew "cmake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Modern diagram scripting language that turns text to diagrams
+brew "d2"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Docker Credential Helper for Amazon ECR
+brew "docker-credential-helper-ecr"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU compiler collection
+brew "gcc"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
+# GitHub command-line tool
+brew "gh"
+# Simple gRPC benchmarking and load testing tool
+brew "ghz"
+# Distributed revision control system
+brew "git"
+# Git extension for versioning large files
+brew "git-lfs"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Framework for layout and rendering of i18n text
+brew "pango"
+# Library to render SVG files using Cairo
+brew "librsvg"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# GNU grep, egrep and fgrep
+brew "grep"
+# Improved top (interactive process viewer)
+brew "htop"
+# Toolkit for embedding hypervisor capabilities in your application
+brew "hyperkit"
+# LLVM's OpenMP runtime library
+brew "libomp", link: true
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Next-gen compiler infrastructure
+brew "llvm"
+# Powerful, lightweight programming language
+brew "lua"
+# Just-In-Time Compiler (JIT) for the Lua programming language
+brew "luajit"
+# Mac App Store command-line interface
+brew "mas"
+# Fast Cross-Platform Package Manager
+brew "micromamba"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Platform built on V8 to build network applications
+brew "node"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Rust toolchain installer
+brew "rustup-init"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Terminal multiplexer
+brew "tmux"
+# Command-line interface to the freedesktop.org trashcan
+brew "trash-cli"
+# Internet file retriever
+brew "wget"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Additional completion definitions for zsh
+brew "zsh-completions"
+# The best way of working with Protocol Buffers.
+brew "bufbuild/buf/buf"
+# HTTP benchmarking tool
+brew "jabley/wrk2/wrk2", args: ["HEAD"]
+# Application launcher and productivity software
+cask "alfred"
+# Display management tool
+cask "betterdisplay"
+# Free app that makes your Internet safer
+cask "cloudflare-warp"
+# Developer targeted fonts with a high number of glyphs
+cask "font-fira-mono-nerd-font"
+# Developer targeted fonts with a high number of glyphs
+cask "font-meslo-lg-nerd-font"
+# Desktop automation application
+cask "hammerspoon"
+# Free and open-source media player
+cask "iina"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Keyboard customiser
+cask "karabiner-elements"
+# Full TeX Live distribution without GUI applications
+cask "mactex-no-gui"
+# Visualiser for neural network, deep learning, and machine learning models
+cask "netron"
+# App to write, plan, collaborate, and get organised
+cask "notion"
+# Calculator and converter application
+cask "numi"
+# Team communication and collaboration software
+cask "slack"
+# Unpacks archive files
+cask "the-unarchiver"
+# Open-source code editor
+cask "visual-studio-code"
+# Video communication and virtual meeting platform
+cask "zoom"
+mas "Amphetamine", id: 937984704
+mas "Hidden Bar", id: 1452453066
+mas "PDF Viewer", id: 1120099014
+mas "Spark Desktop", id: 6445813049
+vscode "azemoh.one-monokai"
+vscode "christian-kohler.path-intellisense"
+vscode "codezombiech.gitignore"
+vscode "davidanson.vscode-markdownlint"
+vscode "dracula-theme.theme-dracula"
+vscode "eamodio.gitlens"
+vscode "ibm.output-colorizer"
+vscode "james-yu.latex-workshop"
+vscode "kriegalex.vscode-cudacpp"
+vscode "mechatroner.rainbow-csv"
+vscode "ms-python.debugpy"
+vscode "ms-python.isort"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vsliveshare.vsliveshare"
+vscode "naumovs.color-highlight"
+vscode "oderwat.indent-rainbow"
+vscode "pdconsec.vscode-print"
+vscode "pkief.material-icon-theme"
+vscode "stkb.rewrap"
+vscode "streetsidesoftware.code-spell-checker"
+vscode "visualstudioexptteam.intellicode-api-usage-examples"
+vscode "visualstudioexptteam.vscodeintellicode"
+vscode "vscodevim.vim"
+vscode "wayou.vscode-todo-highlight"
+vscode "zhuangtongfa.material-theme"

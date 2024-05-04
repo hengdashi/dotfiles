@@ -3,7 +3,7 @@
 # mac-upgrade.sh
 
 DOTPATH=$(cd $(dirname $(readlink "$0"))/../.. && pwd -P)
-BREWFILEPATH=${DOTPATH}/homebrew/Brewfile
+BREWFILEPATH=${DOTPATH}/homebrew/work/Brewfile
 
 echo "################################"
 
@@ -48,12 +48,3 @@ echo "Cleanup Uninstalled Formulas and Caches"
 cd ${BREWFILEPATH}
 brew bundle cleanup --no-lock --force
 brew cleanup
-
-echo "################################"
-
-echo "Commit to Gist"
-git commit -am "update"
-git push
-
-echo "################################"
-
