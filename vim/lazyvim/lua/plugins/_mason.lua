@@ -6,7 +6,6 @@ return {
       -- lsp
       "lua-language-server",
       "json-lsp",
-      "ruff-lsp",
       -- dap
       -- linter
       "buf",
