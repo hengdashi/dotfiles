@@ -12,16 +12,21 @@ DOTPATH=$(cd $(dirname "$0") && pwd -P)
 
 echo "Welcome! Please select an installation environment preset to proceed."
 select env in "home" "work" "minimal"; do
-    case $env in
-        "home" ) INSTALLENV=$env; break;;
-        "work" ) INSTALLENV=$env; break;;
-        "minimal" ) exit;;
-    esac
+  case $env in
+  "home")
+    INSTALLENV=$env
+    break
+    ;;
+  "work")
+    INSTALLENV=$env
+    break
+    ;;
+  "minimal") exit ;;
+  esac
 done
 
 echo "Please enter your email address for git purpose."
 read EMAIL
-
 
 # install applications for macos
 if [[ ${UNAME} == "Darwin" ]]; then
@@ -29,10 +34,9 @@ if [[ ${UNAME} == "Darwin" ]]; then
   sudo xcode-select --install
 
   # install homebrew
-  if ! command -v brew &> /dev/null; then
+  if ! command -v brew &>/dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
-
 
   if [[ "${INSTALLENV}" == "home" ]]; then
     cd ${DOTPATH}/homebrew/home/Brewfile
@@ -81,7 +85,6 @@ fi
 
 git config --global core.editor "vim"
 
-
 # macOS configuration
 if [[ ${UNAME} == "Darwin" ]]; then
   # configure hammerspoon
@@ -99,10 +102,6 @@ if [[ ${UNAME} == "Darwin" ]]; then
   # configure latexmk
   [[ ! -d ~/.config/latexmk ]] && mkdir ~/.config/latexmk
   ln -fs ${DOTPATH}/latexmk/latexmkrc ~/.config/latexmk/latexmkrc
-
-  # configure zathura
-  [[ ! -d ~/.config/zathura ]] && mkdir ~/.config/zathura
-  ln -fs ${DOTPATH}/zathura/zathurarc ~/.config/zathura/zathurarc
 else
   if [[ "${INSTALLENV}" == "home" ]]; then
     # configure alacritty
@@ -110,7 +109,6 @@ else
     ln -fs ${DOTPATH}/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
   fi
 fi
-
 
 # configure tmux
 [[ ! -e ~/.tmux.conf ]] && ln -fs ${DOTPATH}/tmux/.tmux.conf ~/.tmux.conf
