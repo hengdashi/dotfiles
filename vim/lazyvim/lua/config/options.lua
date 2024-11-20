@@ -107,3 +107,6 @@ opt.list = true
 
 -- disable
 opt.wildignore = { '*.o', '*.a', '__pycache__' } -- ignore object, lib, pycache
+
+-- disable LazyVim auto format
+vim.g.autoformat = false
