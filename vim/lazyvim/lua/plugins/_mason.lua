@@ -6,6 +6,7 @@ return {
       -- lsp
       "lua-language-server",
       "json-lsp",
+      "basedpyright",
       -- dap
       -- linter
       "buf",

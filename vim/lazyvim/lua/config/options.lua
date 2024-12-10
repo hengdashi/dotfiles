@@ -108,5 +108,8 @@ opt.list = true
 -- disable
 opt.wildignore = { '*.o', '*.a', '__pycache__' } -- ignore object, lib, pycache
 
+-- session
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- disable LazyVim auto format
-vim.g.autoformat = false
+g.autoformat = false
