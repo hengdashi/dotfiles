@@ -102,7 +102,7 @@ alias mmr="micromamba env remove"
 alias mmls="micromamba env list"
 # turn base venv on
 mma
-# install base python if not existed
+# install base python if not exist
 if ! command -v python &> /dev/null; then
   mm install python -y -c conda-forge
 fi
