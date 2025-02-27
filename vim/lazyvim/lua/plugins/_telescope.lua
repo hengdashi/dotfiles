@@ -6,6 +6,14 @@ return {
     defaults = {
       prompt_prefix = '  ',
     },
-    extensions_list = { 'themes', 'terms', 'fzf' },
+    extensions_list = { 'themes', 'terms', 'fzf', 'dir' },
+    extensions = {
+      file_browser = {
+        hidden = {
+          file_browser = true,
+          folder_browser = true
+        }
+      }
+    }
   },
 }
