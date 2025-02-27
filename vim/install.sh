@@ -6,11 +6,7 @@
 # Distributed under terms of the MIT license.
 #
 
-UNAME=$(uname)
 CWD=$(cd $(dirname "$0") && pwd -P)
-CONFIG="$1"
-DISTRO="$2"
-
 
 if [[ ! -d ~/.config/nvim ]]; then
   mkdir -p ~/.config/nvim/

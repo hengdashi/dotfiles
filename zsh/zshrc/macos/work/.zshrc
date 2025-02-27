@@ -77,6 +77,7 @@ export EDITOR="/opt/homebrew/bin/nvim"
 # set ripgrep config
 export RIPGREP_CONFIG_PATH="/Users/hengdas/.ripgreprc"
 
+
 eval "$(micromamba shell hook --shell=zsh)"
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
@@ -90,6 +91,8 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+
 # set aliases for micromamba
 alias mm="micromamba"
 alias mma="micromamba activate"

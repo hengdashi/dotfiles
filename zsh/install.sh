@@ -8,6 +8,7 @@
 
 UNAME=$(uname)
 CWD=$(cd $(dirname "$0") && pwd -P)
+INSTALL_ENV="$1"
 
 # install zsh for macos
 if [[ ${UNAME} == "Darwin" ]]; then
@@ -26,8 +27,14 @@ elif [[ ${UNAME} == "Linux" ]]; then
 fi
 
 # install prezto
-${CWD}/prezto/prezto.zsh
+${CWD}/prezto/install.sh
 
-if [[ ${UNAME} == "Linux" ]]; then
+if [[ ${UNAME} == "Darwin" ]]; then
+  if [[ ${INSTALL_ENV} == "home" ]]; then
+    ln -sf ${CWD}/zshrc/macos/home/.zshrc ~/.zshrc
+  elif [[ ${INSTALL_ENV} == "work" ]]; then
+    ln -sf ${CWD}/zshrc/macos/work/.zshrc ~/.zshrc
+  fi
+elif [[ ${UNAME} == "Linux" ]]; then
   ln -sf ${CWD}/zshrc/linux/.zshrc ~/.zshrc
 fi

@@ -39,19 +39,19 @@ if [[ ${UNAME} == "Darwin" ]]; then
   fi
 
   if [[ "${INSTALLENV}" == "home" ]]; then
-    cd ${DOTPATH}/homebrew/home/Brewfile
+    cd ${DOTPATH}/homebrew/home
     brew bundle
     cd ${DOTPATH}
     ln -fs ${DOTPATH}/upgrade/macos/home/mac-upgrade.sh ~/mac-upgrade.sh
   elif [[ "${INSTALLENV}" == "work" ]]; then
-    cd ${DOTPATH}/homebrew/work/Brewfile
+    cd ${DOTPATH}/homebrew/work
     brew bundle
     cd ${DOTPATH}
     ln -fs ${DOTPATH}/upgrade/macos/work/mac-upgrade.sh ~/mac-upgrade.sh
   elif [[ "${INSTALLENV}" == "minimal" ]]; then
     # install minimum amount of packages
-    brew install "bat" "git" "git-lfs" "grep" "htop" "neovim" "ripgrep" "tmux" "trash-cli" "wget"
-    brew install --cask "1password" "hammerspoon" "iterm2" "karabiner-elements" "micromamba" "the-unarchiver" "visual-studio-code"
+    brew install "git" "neovim" "bat" "fd" "ripgrep" "fzf"
+    brew install --cask "ghostty" "hammerspoon" "karabiner-elements" "1password"
   fi
 
 # install applications for linux
@@ -59,34 +59,40 @@ elif [[ ${UNAME} == "Linux" ]]; then
   apt update && apt install -y -o Dpkg::Options::="--force-overwrite" git ripgrep bat neovim
 
   ln -fs ${DOTPATH}/upgrade/linux/linux-upgrade.sh ~/linux-upgrade.sh
-
-  # install micromamba
-  if [[ ! -d ~/micromamba ]]; then
-    curl micro.mamba.pm/install.sh | zsh
-  fi
 fi
 
+
 # install zsh
-${DOTPATH}/zsh/zsh.sh
+${DOTPATH}/zsh/install.sh ${INSTALLENV}
+
 
 # link p10k theme
 ln -sf ${DOTPATH}/themes/p10k/.p10k.zsh ~/.p10k.zsh
 
+
 # install vim configuration
-${DOTPATH}/vim/install.sh lua lazyvim
+${DOTPATH}/vim/install.sh
+
 
 # configure git
 git config --global user.name "Hengda Shi"
 if [[ "${INSTALLENV}" == "home" ]]; then
-  git config --global user.email "hengda.shi@engineering.ucla.edu"
+  git config --global user.email "hengdashi@outlook.com"
 elif [[ -n ${EMAIL} ]]; then
   git config --global user.email "${EMAIL}"
 fi
 
 git config --global core.editor "vim"
 
+
 # macOS configuration
 if [[ ${UNAME} == "Darwin" ]]; then
+  # configure ghostty
+  if [[ ! -d ~/.config/ghostty ]]; then
+    mkdir -p ~/.config/ghostty/
+  fi
+  ln -fs ${DOTPATH}/ghostty/config ~/.config/ghostty/config
+
   # configure hammerspoon
   if [[ ! -d ~/.hammerspoon ]]; then
     mkdir -p ~/.hammerspoon/
@@ -102,12 +108,6 @@ if [[ ${UNAME} == "Darwin" ]]; then
   # configure latexmk
   [[ ! -d ~/.config/latexmk ]] && mkdir ~/.config/latexmk
   ln -fs ${DOTPATH}/latexmk/latexmkrc ~/.config/latexmk/latexmkrc
-else
-  if [[ "${INSTALLENV}" == "home" ]]; then
-    # configure alacritty
-    [[ ! -d ~/.config/alacritty ]] && mkdir ~/.config/alacritty
-    ln -fs ${DOTPATH}/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-  fi
 fi
 
 # configure tmux

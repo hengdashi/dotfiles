@@ -3,7 +3,8 @@
 # mac-upgrade.sh
 
 DOTPATH=$(cd $(dirname $(readlink "$0"))/../../.. && pwd -P)
-BREWFILEPATH=${DOTPATH}/homebrew/work/Brewfile
+BREWFILEDIR=${DOTPATH}/homebrew/work
+BREWFILEPATH=${BREWFILEDIR}/Brewfile
 
 echo "################################"
 
@@ -40,11 +41,11 @@ mas upgrade
 echo "################################"
 
 echo "Dump Current Packages to Brewfile"
-brew bundle dump --force --describe --file=${BREWFILEPATH}/Brewfile
+brew bundle dump --force --describe --file=${BREWFILEPATH}
 
 echo "################################"
 
 echo "Cleanup Uninstalled Formulas and Caches"
-cd ${BREWFILEPATH}
+cd ${BREWFILEDIR}
 brew bundle cleanup --no-lock --force
 brew cleanup
