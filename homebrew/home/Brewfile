@@ -37,8 +37,6 @@ brew "snappy"
 brew "tesseract"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
-# User-friendly command-line shell for UNIX-like operating systems
-brew "fish"
 # Open-source alternative to the OpenGL Utility Toolkit (GLUT) library
 brew "freeglut"
 # GNU compiler collection
@@ -75,8 +73,6 @@ brew "kubernetes-cli"
 brew "libomp", link: true
 # Mac App Store command-line interface
 brew "mas"
-# Fast Cross-Platform Package Manager
-brew "micromamba"
 # Run a Kubernetes cluster locally
 brew "minikube"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -95,8 +91,6 @@ brew "rename"
 brew "ripgrep"
 # Tool to create intelligent and beautiful documentation
 brew "sphinx-doc"
-# Cross-shell prompt for astronauts
-brew "starship"
 # Modernized, complete, self-contained TeX/LaTeX engine
 brew "tectonic"
 # Programmatically correct mistyped console commands
@@ -105,6 +99,8 @@ brew "thefuck"
 brew "tmux"
 # Command-line interface to the freedesktop.org trashcan
 brew "trash-cli", link: true
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Vi 'workalike' with many additional features
 brew "vim"
 # Internet file retriever
