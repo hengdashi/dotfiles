@@ -29,6 +29,9 @@ elif [[ ${UNAME} == "Linux" ]]; then
   git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
 fi
 
+# link antidote zsh plugins
+ln -sf ${CWD}/zshrc/antidote/.zsh_plugins.txt ~/.zsh_plugins.txt
+
 if [[ ${UNAME} == "Darwin" ]]; then
   if [[ ${INSTALL_ENV} == "home" ]]; then
     ln -sf ${CWD}/zshrc/macos/home/.zshrc ~/.zshrc
