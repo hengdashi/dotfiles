@@ -2,8 +2,35 @@
 # Init
 #
 
-mattmc3/zephyr path:plugins/environment
-mattmc3/zephyr path:plugins/homebrew
+getantidote/use-prezto
+sorin-ionescu/prezto path:modules/environment
+sorin-ionescu/prezto path:modules/helper
+sorin-ionescu/prezto path:modules/utility autoload:functions
+
+
+#
+# Terminal
+#
+sorin-ionescu/prezto path:modules/spectrum
+sorin-ionescu/prezto path:modules/terminal
+
+
+#
+# Utils
+#
+
+ohmyzsh/ohmyzsh path:plugins/extract
+jeffreytse/zsh-vi-mode
+romkatv/zsh-no-ps2
+
+
+#
+# Fish-like
+#
+
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
 
 #
 # Completions
@@ -11,42 +38,20 @@ mattmc3/zephyr path:plugins/homebrew
 
 mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
+sorin-ionescu/prezto path:modules/editor
+sorin-ionescu/prezto path:modules/history
+sorin-ionescu/prezto path:modules/directory
+sorin-ionescu/prezto path:modules/completion
+sorin-ionescu/prezto path:modules/command-not-found
+sorin-ionescu/prezto path:modules/prompt
+sorin-ionescu/prezto path:modules/git
+
+#
+# Git
+#
 
 #
 # Prompts
 #
 
 romkatv/powerlevel10k
-
-#
-# Utils
-#
-
-mattmc3/zephyr path:plugins/color
-mattmc3/zephyr path:plugins/directory
-mattmc3/zephyr path:plugins/history
-mattmc3/zephyr path:plugins/utility
-ohmyzsh/ohmyzsh path:plugins/extract
-
-#
-# Editor
-#
-
-mattmc3/zephyr path:plugins/editor
-jeffreytse/zsh-vi-mode
-romkatv/zsh-no-ps2
-
-#
-# macOS
-#
-
-mattmc3/zephyr path:plugins/macos
-
-#
-# Fish-like
-#
-
-mattmc3/zephyr path:plugins/zfunctions
-zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-history-substring-search
