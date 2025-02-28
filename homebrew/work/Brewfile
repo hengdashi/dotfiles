@@ -3,6 +3,8 @@ tap "buo/cask-upgrade"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "jabley/wrk2"
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Bourne-Again SHell, a UNIX command interpreter
