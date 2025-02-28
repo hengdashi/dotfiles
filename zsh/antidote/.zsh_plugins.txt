@@ -32,6 +32,7 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 
+
 #
 # Completions
 #
@@ -44,11 +45,12 @@ sorin-ionescu/prezto path:modules/directory
 sorin-ionescu/prezto path:modules/completion
 sorin-ionescu/prezto path:modules/command-not-found
 sorin-ionescu/prezto path:modules/prompt
-sorin-ionescu/prezto path:modules/git
-
 #
 # Git
 #
+
+sorin-ionescu/prezto path:modules/git
+
 
 #
 # Prompts
