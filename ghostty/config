@@ -22,6 +22,7 @@ clipboard-write = allow
 
 
 ##### Theme
+macos-icon = blueprint
 theme = tokyonight_moon
 background = #222436
 foreground = #c8d3f5
