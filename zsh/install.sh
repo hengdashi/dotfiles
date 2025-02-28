@@ -30,7 +30,7 @@ elif [[ ${UNAME} == "Linux" ]]; then
 fi
 
 # link antidote zsh plugins
-ln -sf ${CWD}/zshrc/antidote/.zsh_plugins.txt ~/.zsh_plugins.txt
+ln -sf ${CWD}/antidote/.zsh_plugins.txt ~/.zsh_plugins.txt
 
 if [[ ${UNAME} == "Darwin" ]]; then
   if [[ ${INSTALL_ENV} == "home" ]]; then
