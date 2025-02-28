@@ -1,0 +1,167 @@
+tap "buo/cask-upgrade"
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/services"
+# Download with resuming and segmented downloading
+brew "aria2"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Core application library for C
+brew "glib"
+# Cross-platform make
+brew "cmake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Message bus system, providing inter-application communication
+brew "dbus"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# GNU Emacs text editor
+brew "emacs"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Compression/decompression library aiming for high speed
+brew "snappy"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Open-source alternative to the OpenGL Utility Toolkit (GLUT) library
+brew "freeglut"
+# GNU compiler collection
+brew "gcc"
+# Distributed revision control system
+brew "git"
+# Git extension for versioning large files
+brew "git-lfs"
+# GNU version of the tar archiving utility
+brew "gnu-tar"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
+# Cross-platform application and UI framework
+brew "qt"
+# Command-driven, interactive function plotting
+brew "gnuplot"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Generic library support script
+brew "libtool"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# GNU grep, egrep and fgrep
+brew "grep"
+# Popular GNU data compression program
+brew "gzip"
+# Improved top (interactive process viewer)
+brew "htop"
+# Configurable static site generator
+brew "hugo"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# LLVM's OpenMP runtime library
+brew "libomp", link: true
+# Mac App Store command-line interface
+brew "mas"
+# Fast Cross-Platform Package Manager
+brew "micromamba"
+# Run a Kubernetes cluster locally
+brew "minikube"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Platform built on V8 to build network applications
+brew "node"
+# Highly capable, feature-rich programming language
+brew "perl"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# Show ps output as a tree
+brew "pstree"
+# Perl-powered file rename script with many helpful built-ins
+brew "rename"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Tool to create intelligent and beautiful documentation
+brew "sphinx-doc"
+# Modernized, complete, self-contained TeX/LaTeX engine
+brew "tectonic"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Terminal multiplexer
+brew "tmux"
+# Command-line interface to the freedesktop.org trashcan
+brew "trash-cli", link: true
+# Vi 'workalike' with many additional features
+brew "vim"
+# Internet file retriever
+brew "wget"
+# JavaScript package manager
+brew "yarn"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Additional completion definitions for zsh
+brew "zsh-completions"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# View, print, and comment on PDF documents
+cask "adobe-acrobat-reader"
+# Cloud storage service
+cask "baidunetdisk"
+# Web browser
+cask "firefox"
+cask "font-meslo-lg-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Web browser
+cask "google-chrome"
+# Desktop automation application
+cask "hammerspoon"
+# Free and open-source media player
+cask "iina"
+# Keyboard customiser
+cask "karabiner-elements"
+# Full TeX Live distribution without GUI applications
+cask "mactex-no-gui"
+# Multi-platform web browser
+cask "microsoft-edge"
+# App to write, plan, collaborate, and get organised
+cask "notion"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# PDF reader and note-taking application
+cask "skim"
+# Mesh VPN based on WireGuard
+cask "tailscale"
+# Remote access and connectivity software focused on security
+cask "teamviewer"
+# Unpacks archive files
+cask "the-unarchiver"
+# All-in-one office service platform in Chinese
+cask "wpsoffice-cn"
+# Multiplayer code editor
+cask "zed"
+# Video communication and virtual meeting platform
+cask "zoom"
+# Collect, organise, cite, and share research sources
+cask "zotero"
+mas "1Password for Safari", id: 1569813296
+mas "Adobe Lightroom", id: 1451544217
+mas "Amphetamine", id: 937984704
+mas "Dark Reader for Safari", id: 1438243180
+mas "DaVinci Resolve", id: 571213070
+mas "Notability", id: 736189492
+mas "Numbers", id: 409203825
+mas "PDF Expert", id: 1055273043
+mas "PDF Viewer", id: 1120099014
+mas "Rakuten Cash Back", id: 1451893560
+mas "Spark Desktop", id: 6445813049
+mas "Vimari", id: 1480933944
+mas "WeChat", id: 836500024
