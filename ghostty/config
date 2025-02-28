@@ -19,6 +19,7 @@ window-padding-color = extend
 shell-integration = zsh
 clipboard-read = allow
 clipboard-write = allow
+macos-option-as-alt = true
 
 
 ##### Theme
