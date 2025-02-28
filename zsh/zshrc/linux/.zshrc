@@ -5,13 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 # source antidote
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
@@ -21,3 +14,7 @@ antidote load
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# PATH
+export PATH=/snap/bin:$PATH

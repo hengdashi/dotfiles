@@ -17,7 +17,7 @@ sudo do-release-upgrade
 
 echo "################################"
 
-echo "Upgrade micromamba base Packages"
-micromamba update
+echo "Upgrade snap Packages"
+sudo snap refresh
 
 echo "################################"
