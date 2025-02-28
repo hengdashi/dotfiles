@@ -24,10 +24,10 @@ elif [[ ${UNAME} == "Linux" ]]; then
   if command -v sudo &> /dev/null; then
     [ "zsh" != $(basename $(echo $SHELL)) ] && sudo chsh -s /usr/bin/zsh
   fi
-fi
 
-# install prezto
-${CWD}/prezto/install.sh
+  # install antidote
+  git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
+fi
 
 if [[ ${UNAME} == "Darwin" ]]; then
   if [[ ${INSTALL_ENV} == "home" ]]; then

@@ -1,4 +1,4 @@
-SECONDS=0
+# zmodload zsh/zprof
 
 # homebrew setup
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -10,20 +10,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#
-# Executes commands at the start of an interactive session.
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-zmodload zsh/zprof
+# source antidote
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+antidote load
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# duration=$SECONDS
-# echo "$(($duration / 60)) mins and $(($duration % 60)) seconds"
 
 # set kubectl path
 [ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
@@ -110,3 +103,5 @@ fi
 eval $(thefuck --alias)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# zprof

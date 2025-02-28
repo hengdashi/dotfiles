@@ -3,6 +3,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
 # Download with resuming and segmented downloading
 brew "aria2"
 # Automatic configure script builder
@@ -35,6 +37,8 @@ brew "snappy"
 brew "tesseract"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
 # Open-source alternative to the OpenGL Utility Toolkit (GLUT) library
 brew "freeglut"
 # GNU compiler collection
@@ -91,6 +95,8 @@ brew "rename"
 brew "ripgrep"
 # Tool to create intelligent and beautiful documentation
 brew "sphinx-doc"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Modernized, complete, self-contained TeX/LaTeX engine
 brew "tectonic"
 # Programmatically correct mistyped console commands
@@ -107,8 +113,6 @@ brew "wget"
 brew "yarn"
 # UNIX shell (command interpreter)
 brew "zsh"
-# Additional completion definitions for zsh
-brew "zsh-completions"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # View, print, and comment on PDF documents
