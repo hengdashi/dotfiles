@@ -18,6 +18,26 @@ antidote load
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# set ripgrep config
+export RIPGREP_CONFIG_PATH="/Users/hengdas/.ripgreprc"
+
+function ipy() {
+  uvx \
+      --with pandas \
+      $@ \
+      ipython
+}
+
+
+eval $(thefuck --alias)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+
+
+######## WORK SPECIFIC #########
+
 # set kubectl path
 [ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
 
@@ -67,41 +87,5 @@ export PYTHONPATH="$STARTERVIEW:$PYTHONPATH"
 # set editor
 export VISUAL="/opt/homebrew/bin/nvim"
 export EDITOR="/opt/homebrew/bin/nvim"
-# set ripgrep config
-export RIPGREP_CONFIG_PATH="/Users/hengdas/.ripgreprc"
-
-
-eval "$(micromamba shell hook --shell=zsh)"
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE='/opt/homebrew/opt/micromamba/bin/micromamba';
-export MAMBA_ROOT_PREFIX='/Users/hengdas/micromamba';
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
-fi
-unset __mamba_setup
-# <<< mamba initialize <<<
-
-
-# set aliases for micromamba
-alias mm="micromamba"
-alias mma="micromamba activate"
-alias mmd="micromamba deactivate"
-alias mmc="micromamba create"
-alias mmr="micromamba env remove"
-alias mmls="micromamba env list"
-# turn base venv on
-mma
-# install base python if not exist
-if ! command -v python &> /dev/null; then
-  mm install python -y -c conda-forge
-fi
-
-eval $(thefuck --alias)
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # zprof

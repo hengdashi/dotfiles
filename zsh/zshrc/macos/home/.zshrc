@@ -28,4 +28,11 @@ eval $(thefuck --alias)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+function ipy() {
+  uvx \
+      --with pandas \
+      $@ \
+      ipython
+}
+
 # zprof
