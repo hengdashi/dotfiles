@@ -4,6 +4,7 @@
 
 
 local opt = vim.opt
+local fn = vim.fn
 local g = vim.g
 
 
@@ -113,3 +114,26 @@ opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,te
 
 -- disable LazyVim auto format
 g.autoformat = false
+
+
+local function osc52_paste()
+  return {
+    fn.split(fn.getreg(""), "\n"),
+    fn.getregtype(""),
+  }
+end
+
+if (os.getenv('SSH_TTY') ~= nil)
+then
+    g.clipboard = {
+      name = 'OSC 52',
+      copy = {
+        ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+      },
+      paste = {
+        ["+"] = osc52_paste,
+        ["*"] = osc52_paste,
+    },
+}
+end
