@@ -54,7 +54,8 @@ if [[ ${UNAME} == "Darwin" ]]; then
 
 # install applications for linux
 elif [[ ${UNAME} == "Linux" ]]; then
-  apt update && apt install -y -o Dpkg::Options::="--force-overwrite" git ripgrep bat neovim
+  sudo apt update && sudo apt install -y -o Dpkg::Options::="--force-overwrite" git ripgrep bat fzf
+  sudo snap install astral-uv nvim
 
   ln -fs ${DOTPATH}/upgrade/linux/linux-upgrade.sh ~/linux-upgrade.sh
 fi

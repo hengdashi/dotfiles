@@ -18,3 +18,13 @@ antidote load
 
 # PATH
 export PATH=/snap/bin:$PATH
+
+# alias
+alias kc=kubectl
+
+function ipy() {
+  uvx \
+      --with pandas \
+      $@ \
+      ipython
+}
