@@ -21,6 +21,7 @@ quit-after-last-window-closed=true
 shell-integration = zsh
 clipboard-read = allow
 clipboard-write = allow
+copy-on-select = clipboard
 macos-option-as-alt = true
 
 
