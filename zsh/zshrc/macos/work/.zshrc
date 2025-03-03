@@ -22,7 +22,7 @@ antidote load
 export RIPGREP_CONFIG_PATH="/Users/hengdas/.ripgreprc"
 
 function ipy() {
-  uvx \
+  uv tool run \
       --with pandas \
       $@ \
       ipython
