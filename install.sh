@@ -25,8 +25,6 @@ select env in "home" "work" "minimal"; do
   esac
 done
 
-echo "Please enter your email address for git purpose."
-read EMAIL
 
 # install applications for macos
 if [[ ${UNAME} == "Darwin" ]]; then
@@ -77,11 +75,14 @@ ${DOTPATH}/vim/install.sh
 # configure git
 git config --global user.name "Hengda Shi"
 if [[ "${INSTALLENV}" == "home" ]]; then
-  git config --global user.email "hengdashi@outlook.com"
-elif [[ -n ${EMAIL} ]]; then
-  git config --global user.email "${EMAIL}"
+  git config --global user.email "me@hengdashi.dev"
+else
+  echo "Please enter your email address for git purpose."
+  read EMAIL
+  if [[ -n ${EMAIL} ]]; then
+    git config --global user.email "${EMAIL}"
+  fi
 fi
-
 git config --global core.editor "vim"
 
 
