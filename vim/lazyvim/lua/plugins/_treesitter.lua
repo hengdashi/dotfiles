@@ -12,6 +12,7 @@ return {
       'json',
       'markdown',
       'markdown_inline',
+      'rust',
       'python',
       'toml',
       'yaml',
