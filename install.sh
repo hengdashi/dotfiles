@@ -38,18 +38,18 @@ if [[ ${UNAME} == "Darwin" ]]; then
 
   if [[ "${INSTALLENV}" == "home" ]]; then
     cd ${DOTPATH}/homebrew/home
-    brew bundle
+    /opt/homebrew/bin/brew bundle
     cd ${DOTPATH}
     ln -fs ${DOTPATH}/upgrade/macos/home/mac-upgrade.sh ~/mac-upgrade.sh
   elif [[ "${INSTALLENV}" == "work" ]]; then
     cd ${DOTPATH}/homebrew/work
-    brew bundle
+    /opt/homebrew/bin/brew bundle
     cd ${DOTPATH}
     ln -fs ${DOTPATH}/upgrade/macos/work/mac-upgrade.sh ~/mac-upgrade.sh
   elif [[ "${INSTALLENV}" == "minimal" ]]; then
     # install minimum amount of packages
-    brew install "git" "neovim" "bat" "fd" "ripgrep" "fzf"
-    brew install --cask "ghostty" "hammerspoon" "karabiner-elements" "1password"
+    /opt/homebrew/bin/brew install "git" "neovim" "bat" "fd" "ripgrep" "fzf"
+    /opt/homebrew/bin/brew install --cask "ghostty" "hammerspoon" "karabiner-elements" "1password"
   fi
 
 # install applications for linux
