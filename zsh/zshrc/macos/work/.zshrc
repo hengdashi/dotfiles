@@ -89,3 +89,5 @@ export VISUAL="/opt/homebrew/bin/nvim"
 export EDITOR="/opt/homebrew/bin/nvim"
 
 # zprof
+eval "$(devbox global shellenv)"
+eval "$(direnv hook zsh)"

@@ -48,7 +48,7 @@ if [[ ${UNAME} == "Darwin" ]]; then
     ln -fs ${DOTPATH}/upgrade/macos/work/mac-upgrade.sh ~/mac-upgrade.sh
   elif [[ "${INSTALLENV}" == "minimal" ]]; then
     # install minimum amount of packages
-    /opt/homebrew/bin/brew install "git" "neovim" "bat" "fd" "ripgrep" "fzf"
+    /opt/homebrew/bin/brew install "git" "neovim" "bat" "fd" "ripgrep" "fzf" "antidote"
     /opt/homebrew/bin/brew install --cask "ghostty" "hammerspoon" "karabiner-elements" "1password"
   fi
 

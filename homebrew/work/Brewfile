@@ -79,12 +79,13 @@ brew "bufbuild/buf/buf"
 cask "cloudflare-warp"
 # Write, edit, and chat about your code with AI
 cask "cursor"
-cask "font-fira-mono-nerd-font"
 cask "font-meslo-lg-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Desktop automation application
 cask "hammerspoon"
+# Menu bar manager
+cask "jordanbaird-ice"
 # Keyboard customiser
 cask "karabiner-elements"
 # App to write, plan, collaborate, and get organised
@@ -93,13 +94,11 @@ cask "notion"
 cask "slack"
 # Unpacks archive files
 cask "the-unarchiver"
-# Rust-based terminal
-cask "warp"
 # Multiplayer code editor
 cask "zed"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Amphetamine", id: 937984704
-mas "Hidden Bar", id: 1452453066
 mas "PDF Viewer", id: 1120099014
 mas "Spark Desktop", id: 6445813049
+vscode "vscodevim.vim"
